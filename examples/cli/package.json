@@ -1,0 +1,10 @@
+{
+  "name": "@example/cli",
+  "private": true,
+  "scripts": {
+    "call": "inula version"
+  },
+  "dependencies": {
+    "inula": "workspace:*"
+  }
+}

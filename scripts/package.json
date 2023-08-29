@@ -1,0 +1,8 @@
+{
+  "name": "inula-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "bin": {
+    "inula-scripts": "bin/inula-scripts.js"
+  }
+}
