@@ -120,16 +120,22 @@ importers:
         specifier: workspace:*
         version: link:../preset-inula
       '@umijs/core':
-        specifier: 4.0.78
-        version: 4.0.78
+        specifier: 4.0.88
+        version: 4.0.88
       '@umijs/utils':
-        specifier: 4.0.78
-        version: 4.0.78
+        specifier: 4.0.88
+        version: 4.0.88
 
   packages/preset-inula:
     dependencies:
+      '@umijs/bundler-vite':
+        specifier: 4.0.88
+        version: 4.0.88(@types/node@17.0.35)(postcss@8.4.31)
+      '@umijs/bundler-webpack':
+        specifier: 4.0.88
+        version: 4.0.88(typescript@4.7.2)(webpack@5.89.0)
       '@umijs/preset-umi':
-        specifier: ^4.0.88
+        specifier: 4.0.88
         version: 4.0.88(@types/node@17.0.35)(typescript@4.7.2)(webpack@5.89.0)
 
   scripts: {}
@@ -321,6 +327,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
+    dev: true
 
   /@babel/runtime@7.23.2:
     resolution: {integrity: sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==}
@@ -1860,18 +1867,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@umijs/bundler-utils@4.0.78:
-    resolution: {integrity: sha512-5SWfTr7gHbvrGfYLPU0FJNWoj8aMOtI0ELesG1V/INYQJK5uSSYqplLktbhqbS3/9O9+OOx3DFlDfeX3KZp+RQ==}
-    dependencies:
-      '@umijs/utils': 4.0.78
-      esbuild: 0.17.19
-      regenerate: 1.4.2
-      regenerate-unicode-properties: 10.1.0
-      spdy: 4.0.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@umijs/bundler-utils@4.0.88:
     resolution: {integrity: sha512-jJmen5OLJhO8Hd3GWolC1VvxD5RZLHQl9Jx2Lz2soA1463gAqdAAh0Wa6m69YdVBzh0WzHZ9049RmP23K1ow8A==}
     dependencies:
@@ -1985,15 +1980,6 @@ packages:
   /@umijs/case-sensitive-paths-webpack-plugin@1.0.1:
     resolution: {integrity: sha512-kDKJ8yTarxwxGJDInG33hOpaQRZ//XpNuuznQ/1Mscypw6kappzFmrBr2dOYave++K7JHouoANF354UpbEQw0Q==}
 
-  /@umijs/core@4.0.78:
-    resolution: {integrity: sha512-ZfJyE9kKi/yiGEj/SQSSd6xQl/zQwY2MkI6q0yKrCDsd60iOfkiYLhxlQJ6A2bAn2V0KoqM3SIw31ZZLER9m2w==}
-    dependencies:
-      '@umijs/bundler-utils': 4.0.78
-      '@umijs/utils': 4.0.78
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@umijs/core@4.0.88:
     resolution: {integrity: sha512-fwOCDOEW0evLmOWc/uGdlJ8VOS2KhfOd446B2TBUTdyBE8etUBMtZo9NgN2z8VOC+Xu0jLlBIjEMbJ73eWV/qQ==}
     dependencies:
@@ -2105,7 +2091,7 @@ packages:
   /@umijs/history@5.3.1:
     resolution: {integrity: sha512-/e0cEGrR2bIWQD7pRl3dl9dcyRGeC9hoW0OCvUTT/hjY0EfUrkd6G8ZanVghPMpDuY5usxq9GVcvrT8KNXLWvA==}
     dependencies:
-      '@babel/runtime': 7.22.11
+      '@babel/runtime': 7.23.2
       query-string: 6.14.1
     dev: false
 
@@ -2257,6 +2243,7 @@ packages:
     dependencies:
       chokidar: 3.5.3
       pino: 7.11.0
+    dev: true
 
   /@umijs/utils@4.0.88:
     resolution: {integrity: sha512-b7rW75hQ18+1Q3rt6cqOIed6hftmsExUsfJaCjYCIqFL3DRn+D8Uwb0EEsNlxgLnWUgwGC2KrIYYMvc2Q2XfWA==}
@@ -3717,8 +3704,8 @@ packages:
   /es-get-iterator@1.1.3:
     resolution: {integrity: sha512-sPZmqHBe6JIiTfN5q2pEi//TwxmAFHwj/XEuYjTuse78i8KxaqMTTzxPoFKuzRpDpTJ+0NAbpfenkmH2rePtuw==}
     dependencies:
-      call-bind: 1.0.2
-      get-intrinsic: 1.2.1
+      call-bind: 1.0.5
+      get-intrinsic: 1.2.2
       has-symbols: 1.0.3
       is-arguments: 1.1.1
       is-map: 2.0.2
@@ -4811,7 +4798,7 @@ packages:
     resolution: {integrity: sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA==}
     engines: {node: '>= 0.4'}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
       has-tostringtag: 1.0.0
 
   /is-array-buffer@3.0.2:
@@ -4851,7 +4838,7 @@ packages:
     resolution: {integrity: sha512-gDYaKHJmnj4aWxyj6YHyXVpdQawtVLHU5cb+eztPGczf6cjuTdwve5ZIEfgXqH4e57An1D1AKf8CZ3kYrQRqYA==}
     engines: {node: '>= 0.4'}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
       has-tostringtag: 1.0.0
 
   /is-callable@1.2.7:
@@ -4979,7 +4966,7 @@ packages:
     resolution: {integrity: sha512-kvRdxDsxZjhzUX07ZnLydzS1TU/TJlTUHHY4YLL87e37oUA49DfkLqgy+VjFocowy29cKvcSiu+kIv728jTTVg==}
     engines: {node: '>= 0.4'}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
       has-tostringtag: 1.0.0
 
   /is-set@2.0.2:
@@ -5032,7 +5019,7 @@ packages:
   /is-weakset@2.0.2:
     resolution: {integrity: sha512-t2yVvttHkQktwnNNmBQ98AhENLdPUTDTE21uPqAQ0ARwQfGeQKRVS0NNurH7bTf7RrvcVn1OOge45CnBeHCSmg==}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
       get-intrinsic: 1.2.2
 
   /is-what@3.14.1:
@@ -6150,7 +6137,7 @@ packages:
     resolution: {integrity: sha512-jCBs/0plmPsOnrKAfFQXRG2NFjlhZgjjcBLSmTnEhU8U6vVTsVe8ANeQJCHTl3gSsI4J+0emOoCgoKlmQPMgmA==}
     engines: {node: '>= 0.4'}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
       define-properties: 1.2.1
       es-abstract: 1.22.3
 
@@ -6158,7 +6145,7 @@ packages:
     resolution: {integrity: sha512-4G0QiXpoIppBUz5efmxTm/HTbVN2ioGjk/PbsaNvwISFX+saj8muGp6vNuzIdsosFxM4V/kpUVNvy/+9+DVBZQ==}
     engines: {node: '>= 0.4'}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
       define-properties: 1.2.1
       es-abstract: 1.22.3
       reflect.getprototypeof: 1.0.4
@@ -7184,19 +7171,12 @@ packages:
     resolution: {integrity: sha512-ECkTw8TmJwW60lOTR+ZkODISW6RQ8+2CL3COqtiJKLd6MmB45hN51HprHFziKLGkAuTGQhBb91V8cy+KHlaCjw==}
     engines: {node: '>= 0.4'}
     dependencies:
-      call-bind: 1.0.2
+      call-bind: 1.0.5
       define-properties: 1.2.1
       es-abstract: 1.22.3
       get-intrinsic: 1.2.2
       globalthis: 1.0.3
       which-builtin-type: 1.1.3
-
-  /regenerate-unicode-properties@10.1.0:
-    resolution: {integrity: sha512-d1VudCLoIGitcU/hEg2QqvyGZQmdC0Lf8BqdOMXGFSvJP4bNV1+XqbPQeHHLD51Jh4QJJ225dlIFvY4Ly6MXmQ==}
-    engines: {node: '>=4'}
-    dependencies:
-      regenerate: 1.4.2
-    dev: false
 
   /regenerate-unicode-properties@10.1.1:
     resolution: {integrity: sha512-X007RyZLsCJVVrjgEFVpLUTZwyOZk3oiL75ZcuYjlIWd6rNJtOjkBwQc5AsRrpbKVkxN6sklw/k/9m2jJYOf8Q==}
@@ -7888,7 +7868,7 @@ packages:
     resolution: {integrity: sha512-+O+9pb6jMcFN+bSX69RZibu8yJAX4W1mFj3EL7ekedGPxYd3c3R9Szss6pP6633AqClvqHuS6F5HvmoYLLbWzg==}
     hasBin: true
     dependencies:
-      '@umijs/utils': 4.0.78
+      '@umijs/utils': 4.0.88
       cnpm: 9.2.0
       tsx: 3.12.7
       yaml: 2.3.2
