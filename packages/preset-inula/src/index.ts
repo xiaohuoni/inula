@@ -1,4 +1,11 @@
-export type { IApi, IConfig, IRoute, webpack } from '@umijs/preset-umi';
+export type {
+  IApi,
+  IConfig,
+  IRoute,
+  UmiApiRequest,
+  UmiApiResponse,
+  webpack,
+} from '@umijs/preset-umi';
 export default () => {
   return {
     plugins: [
@@ -85,7 +92,8 @@ export default () => {
       ),
 
       // commands
-      require.resolve('@umijs/preset-umi/dist/commands/build'),
+      // require.resolve('@umijs/preset-umi/dist/commands/build'),
+      require.resolve('./commands/build'),
       require.resolve('@umijs/preset-umi/dist/commands/config/config'),
       // require.resolve('@umijs/preset-umi/dist/commands/dev/dev'),
       require.resolve('./commands/dev'),

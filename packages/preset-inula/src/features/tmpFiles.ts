@@ -63,7 +63,9 @@ export default (api: IApi) => {
         moduleResolution: isTs5 ? 'bundler' : 'node',
         importHelpers: isTslibInstalled,
         noEmit: true,
-        jsx: api.appData.framework === 'vue' ? 'preserve' : 'react-jsx',
+        // jsx: api.appData.framework === 'vue' ? 'preserve' : 'react-jsx',
+        // openinula 用的也是 preserve
+        jsx: 'preserve',
         esModuleInterop: true,
         sourceMap: true,
         baseUrl,
@@ -83,6 +85,7 @@ export default (api: IApi) => {
         paths: {
           '@/*': [`${srcPrefix}*`],
           '@@/*': [`${umiTempDir}/*`],
+          openinula: [api.appData.openinula.path],
           [`${api.appData.umi.importSource}`]: [umiDir],
           [`${api.appData.umi.importSource}/typings`]: [
             `${umiTempDir}/typings`,
