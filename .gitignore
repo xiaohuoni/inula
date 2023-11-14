@@ -20,3 +20,4 @@ dist
 .turbo
 .idea
 playwright-report
+/packages/inula/client
