@@ -40,6 +40,7 @@
     "@vercel/ncc": "0.33.3",
     "esno": "^0.14.1",
     "execa": "4.0.3",
+    "father": "^4.3.7",
     "git-repo-info": "^2.1.1",
     "husky": "^7.0.4",
     "inula-scripts": "workspace:*",

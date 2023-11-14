@@ -10,8 +10,8 @@ export const PATHS = {
 } as const;
 
 export const SCRIPTS = {
-  BUNDLE_DEPS: 'umi-scripts bundleDeps',
-  DEV: 'pnpm build --watch',
-  BUILD: 'pnpm tsc',
-  TEST_TURBO: 'umi-scripts jest-turbo',
+  BUNDLE_DEPS: 'inula-scripts bundleDeps',
+  DEV: 'inula-scripts father dev',
+  BUILD: 'inula-scripts father build',
+  TEST_TURBO: 'inula-scripts jest-turbo',
 } as const;
