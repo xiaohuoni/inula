@@ -1,8 +1,8 @@
 {
-  "name": "inula",
+  "name": "@aluni/preset-inula",
   "version": "0.0.0",
-  "description": "A Inulajs framework based on umi.",
-  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/inula#readme",
+  "description": "@aluni/preset-inula",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/preset-inula#readme",
   "bugs": "https://gitee.com/congxiaochen/inula/issues",
   "repository": {
     "type": "git",
@@ -11,17 +11,8 @@
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "bin": {
-    "inula": "bin/inula.js"
-  },
   "files": [
-    "assets",
-    "dist",
-    "templates",
-    "index.d.ts",
-    "index.esm.js",
-    "index.js",
-    "bin"
+    "dist"
   ],
   "scripts": {
     "build": "inula-scripts father build",
@@ -30,14 +21,14 @@
     "test": "inula-scripts jest-turbo"
   },
   "dependencies": {
-    "@aluni/preset-inula": "workspace:*",
-    "@umijs/core": "4.0.88",
-    "@umijs/utils": "4.0.88"
+    "@umijs/bundler-vite": "4.0.88",
+    "@umijs/bundler-webpack": "4.0.88",
+    "@umijs/preset-umi": "4.0.88"
   },
   "publishConfig": {
     "access": "public"
   },
   "authors": [
-    "chenxiaocong <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
   ]
 }

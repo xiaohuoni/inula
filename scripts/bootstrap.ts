@@ -21,12 +21,12 @@ import { setExcludeFolder } from './.internal/utils';
     if (['inula'].includes(pkgName)) {
       return pkgName;
     } else {
-      return `@alitajs/${pkgName}`;
+      return `@aluni/${pkgName}`;
     }
   }
 
   function getVersion() {
-    return '3.0.0';
+    return '0.0.0';
   }
 
   async function bootstrapPkg(opts: any) {
@@ -124,13 +124,13 @@ export default () => {
           'utf-8',
         );
         await fs.writeFile(
-          path.join(pkgDir, 'src', 'index.test.ts'),
+          path.join(pkgDir, '.fatherrc.ts'),
           `
-import index from './index';
+import { defineConfig } from 'father';
 
-test('normal', () => {
-  expect(index()).toEqual('${name}');
-});\n`.trimLeft(),
+export default defineConfig({
+   extends: '../../.fatherrc.base.ts',
+});`.trimLeft(),
           'utf-8',
         );
       }

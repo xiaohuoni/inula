@@ -11,9 +11,13 @@
 /packages/**/src/**/fixtures/*/.umi
 /packages/**/src/**/fixtures/*/.umi-production
 .umi
+.inula
 .umi-production
+.inula-production
 .umi-test
+.inula-test
 dist
 .turbo
 .idea
 playwright-report
+/packages/inula/client
