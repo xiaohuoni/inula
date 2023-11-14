@@ -104,6 +104,9 @@ importers:
 
   examples/boilerplate:
     dependencies:
+      '@types/react':
+        specifier: ^18.2.37
+        version: 18.2.37
       inula:
         specifier: workspace:*
         version: link:../../packages/inula
@@ -137,6 +140,17 @@ importers:
       '@umijs/preset-umi':
         specifier: 4.0.88
         version: 4.0.88(@types/node@17.0.35)(typescript@4.7.2)(webpack@5.89.0)
+      '@umijs/server':
+        specifier: ^4.0.88
+        version: 4.0.88
+      '@umijs/utils':
+        specifier: 4.0.88
+        version: 4.0.88
+      openinula:
+        specifier: 0.0.1
+        version: 0.0.1
+
+  packages/renderer-inula: {}
 
   scripts: {}
 
@@ -1804,6 +1818,10 @@ packages:
   /@types/parse-json@4.0.2:
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
 
+  /@types/prop-types@15.7.10:
+    resolution: {integrity: sha512-mxSnDQxPqsZxmeShFH+uwQ4kO4gcJcGahjjMFeLbKE95IAZiiZyiEepGZjtXJ7hN/yfu0bu9xN2ajcU0JcxX6A==}
+    dev: false
+
   /@types/ps-tree@1.1.2:
     resolution: {integrity: sha512-ZREFYlpUmPQJ0esjxoG1fMvB2HNaD3z+mjqdSosZvd3RalncI9NEur73P8ZJz4YQdL64CmV1w0RuqoRUlhQRBw==}
     dev: true
@@ -1811,6 +1829,14 @@ packages:
   /@types/qrcode-terminal@0.12.0:
     resolution: {integrity: sha512-g0fQKl3IVnUePV8tLkiBTduxAVSZsXts444T2aMfjOEGxd7XoeSIs16/AmRe2NlcJLqbvsOBSXov7dKSo4wigA==}
     dev: true
+
+  /@types/react@18.2.37:
+    resolution: {integrity: sha512-RGAYMi2bhRgEXT3f4B92WTohopH6bIXw05FuGlmJEnv/omEn190+QYEIYxIAuIBdKgboYYdVved2p1AxZVQnaw==}
+    dependencies:
+      '@types/prop-types': 15.7.10
+      '@types/scheduler': 0.16.6
+      csstype: 3.1.2
+    dev: false
 
   /@types/resolve@1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
@@ -1822,6 +1848,10 @@ packages:
       '@types/glob': 8.1.0
       '@types/node': 17.0.35
     dev: true
+
+  /@types/scheduler@0.16.6:
+    resolution: {integrity: sha512-Vlktnchmkylvc9SnwwwozTv04L/e1NykF5vgoQ0XTmI8DD+wxfjQuHuvHS3p0r2jz2x2ghPs2h1FVeDirIteWA==}
+    dev: false
 
   /@types/which@2.0.2:
     resolution: {integrity: sha512-113D3mDkZDjo+EeUEHCFy0qniNc1ZpecGiAU7WSo7YDoSzolZIQKpYFHrPpjkB2nuyahcKfrmLXeQlh7gqJYdw==}
@@ -3351,6 +3381,10 @@ packages:
     engines: {node: '>=8.0.0'}
     dependencies:
       css-tree: 1.1.3
+
+  /csstype@3.1.2:
+    resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
+    dev: false
 
   /current-script-polyfill@1.0.0:
     resolution: {integrity: sha1-8xz35PPiGLBybnOMqSoC00iO9hU=}
@@ -6174,6 +6208,11 @@ packages:
       define-lazy-prop: 2.0.0
       is-docker: 2.2.1
       is-wsl: 2.2.0
+
+  /openinula@0.0.1:
+    resolution: {integrity: sha512-wpSPpiyfpyVNJl4ppd0BT/LhdHtPw1apt4mlXuEZZw4XlCnmMeh2gQsu0/W9f+j8pED5L5fdwrrI0D+LdYyx8w==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /ora@4.1.1:
     resolution: {integrity: sha512-sjYP8QyVWBpBZWD6Vr1M/KwknSw6kJOz41tvGMlwWeClHBtYKTbHMki1PsLZnxKpXMPbTKv9b3pjQu3REib96A==}

@@ -1,7 +1,16 @@
 import { IApi } from '@umijs/preset-umi';
+import { dirname } from 'path';
+import { resolveProjectDep } from '../utils/resolveProjectDep';
 
 export default (api: IApi) => {
   const version = require('../../package.json').version;
+  const inulaPath =
+    resolveProjectDep({
+      pkg: api.pkg,
+      cwd: api.cwd,
+      dep: 'openinula',
+    }) || dirname(require.resolve('openinula/package.json'));
+
   const configDefaults: Record<string, any> = {
     mfsu: false,
     ...api.userConfig,
@@ -12,9 +21,12 @@ export default (api: IApi) => {
     memo.umi.importSource = 'inula';
     memo.umi.cliName = 'inula';
     memo.umi.version = version;
+    memo.openinula ??= {};
+    memo.openinula.path = inulaPath;
+    memo.openinula.version = require('openinula/package.json').version;
     return memo;
   });
-  api.modifyConfig((memo: any) => {
+  api.modifyDefaultConfig((memo: any) => {
     memo.alias.inula = 'umi';
     Object.keys(configDefaults).forEach((key) => {
       if (key === 'alias') {
@@ -23,11 +35,32 @@ export default (api: IApi) => {
         memo[key] = configDefaults[key];
       }
     });
+
+    memo.alias.react = inulaPath;
+    memo.alias.openinula = inulaPath;
+    memo.alias['react-dom'] = inulaPath;
+    // react-dom/client 顺序要在 react-dom 之前
+    if (memo.alias['react-dom/client']) {
+      memo.alias['react-dom/client'] = inulaPath;
+    } else {
+      memo.alias = {
+        'react-dom/client': inulaPath,
+        ...memo.alias,
+      };
+    }
     // umi4 开发环境不允许配置为 './'
     if (process.env.NODE_ENV === 'development' && memo.publicPath === './') {
       console.warn('开发环境不允许配置为 "./"');
       memo.publicPath = '/';
     }
+    return memo;
+  });
+
+  api.modifyBabelPresetOpts((memo) => {
+    memo.presetReact = {
+      runtime: 'automatic',
+      importSource: 'openinula', // 新增
+    };
     return memo;
   });
 };
