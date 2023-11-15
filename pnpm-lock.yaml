@@ -104,6 +104,9 @@ importers:
 
   examples/boilerplate:
     dependencies:
+      '@aluni/plugin-x':
+        specifier: workspace:*
+        version: link:../../packages/plugin-x
       '@types/react':
         specifier: ^18.2.37
         version: 18.2.37
@@ -129,6 +132,18 @@ importers:
         specifier: 4.0.88
         version: 4.0.88
 
+  packages/plugin-x:
+    dependencies:
+      '@aluni/preset-inula':
+        specifier: workspace:*
+        version: link:../preset-inula
+      '@umijs/bundler-utils':
+        specifier: ^4.0.88
+        version: 4.0.88
+      '@umijs/utils':
+        specifier: 4.0.88
+        version: 4.0.88
+
   packages/preset-inula:
     dependencies:
       '@umijs/bundler-vite':
@@ -149,8 +164,6 @@ importers:
       openinula:
         specifier: 0.0.1
         version: 0.0.1
-
-  packages/renderer-inula: {}
 
   scripts: {}
 

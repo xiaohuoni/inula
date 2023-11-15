@@ -5,8 +5,7 @@
     "paths": {
       "@/*": ["*"],
       "@@/*": [".inula/*"],
-      "inula": ["./packages/inula"],
-      "@aluni/preset-inula": ["./packages/preset-inula"]
+      "inula": ["./packages/inula"]
     }
   }
 }
