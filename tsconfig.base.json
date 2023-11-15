@@ -10,7 +10,7 @@
     "strict": true,
     "skipLibCheck": true,
     "target": "esnext",
-    "jsx": "preserve",
+    "jsx": "react",
     "paths": {
       "inula": ["./packages/inula"]
     }
