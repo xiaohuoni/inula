@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "index.d.ts",
   "bin": {
     "inula": "bin/inula.js"
   },

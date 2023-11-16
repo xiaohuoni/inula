@@ -652,6 +652,9 @@ if (process.env.NODE_ENV === 'development') {
           );
         }
       }
+      exports.push('// openinula');
+      exports.push(`export * from '${api.appData.openinula.path}';\n`);
+
       // plugins
       exports.push('// plugins');
       const allPlugins = readdirSync(api.paths.absTmpPath).filter((file) =>
