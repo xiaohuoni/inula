@@ -33,9 +33,7 @@ export default (api: IApi) => {
     // index.ts for export
     api.writeTmpFile({
       path: 'index.ts',
-      content: `export { createStore } from 'openinula';\n${StoreUtils.getStoresContent(
-        stores,
-      )}`,
+      content: StoreUtils.getStoresContent(stores),
     });
   });
   api.addTmpGenerateWatcherPaths(() => {

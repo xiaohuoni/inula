@@ -27,7 +27,6 @@ export default (api: IApi) => {
     return memo;
   });
   api.modifyDefaultConfig((memo: any) => {
-    memo.alias.inula = 'umi';
     Object.keys(configDefaults).forEach((key) => {
       if (key === 'alias') {
         memo[key] = { ...memo[key], ...configDefaults[key] };
@@ -35,7 +34,8 @@ export default (api: IApi) => {
         memo[key] = configDefaults[key];
       }
     });
-
+    memo.alias.inula = '@@/exports';
+    memo.alias.openinula = inulaPath;
     memo.alias.react = inulaPath;
     memo.alias.openinula = inulaPath;
     memo.alias['react-dom'] = inulaPath;
