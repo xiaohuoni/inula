@@ -1,0 +1,33 @@
+{
+  "name": "@aluni/plugin-intl",
+  "version": "0.0.0",
+  "description": "@aluni/plugin-intl",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-intl#readme",
+  "bugs": "https://gitee.com/congxiaochen/inula/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/congxiaochen/inula"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "inula-scripts father build",
+    "build:deps": "inula-scripts bundleDeps",
+    "dev": "inula-scripts father dev"
+  },
+  "dependencies": {
+    "@aluni/preset-inula": "workspace:*",
+    "@umijs/utils": "4.0.88",
+    "inula-intl": "^0.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ]
+}

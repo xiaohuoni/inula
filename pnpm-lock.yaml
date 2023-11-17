@@ -120,6 +120,21 @@ importers:
         specifier: workspace:*
         version: link:../../packages/inula
 
+  examples/intl:
+    dependencies:
+      '@aluni/plugin-intl':
+        specifier: workspace:*
+        version: link:../../packages/plugin-intl
+      '@aluni/plugin-x':
+        specifier: workspace:*
+        version: link:../../packages/plugin-x
+      '@types/react':
+        specifier: ^18.2.37
+        version: 18.2.37
+      inula:
+        specifier: workspace:*
+        version: link:../../packages/inula
+
   packages/inula:
     dependencies:
       '@aluni/preset-inula':
@@ -131,6 +146,18 @@ importers:
       '@umijs/utils':
         specifier: 4.0.88
         version: 4.0.88
+
+  packages/plugin-intl:
+    dependencies:
+      '@aluni/preset-inula':
+        specifier: workspace:*
+        version: link:../preset-inula
+      '@umijs/utils':
+        specifier: 4.0.88
+        version: 4.0.88
+      inula-intl:
+        specifier: ^0.0.2
+        version: 0.0.2(inulajs@0.0.12)
 
   packages/plugin-x:
     dependencies:
@@ -4826,6 +4853,19 @@ packages:
       get-intrinsic: 1.2.2
       hasown: 2.0.0
       side-channel: 1.0.4
+
+  /inula-intl@0.0.2(inulajs@0.0.12):
+    resolution: {integrity: sha512-K2diAwz4Y/LIj1kN+5uyRlMgo71HPeZjljGaR1rAOah8gnTF0D/HcGhOnRhrK9p5im9jeKJtme5lcFLUbZ8vcQ==}
+    peerDependencies:
+      inulajs: ^0.0.12
+    dependencies:
+      inulajs: 0.0.12
+    dev: false
+
+  /inulajs@0.0.12:
+    resolution: {integrity: sha512-qI1szUpxGjW3Ct5m6L/C9bjCQlerLhkbT6Gk8nNTeVFZFr7sIPUGNeujCPHH0y/hcDkwqcPEYtCQc0DwUGbFwg==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /invariant@2.2.4:
     resolution: {integrity: sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==}

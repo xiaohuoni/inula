@@ -1,7 +1,7 @@
-import { helloStore } from 'inula';
+import { useStore } from 'inula';
 
 const Page = () => {
-  const store = helloStore();
+  const store = useStore('hello');
   return (
     <div>
       hello {store.title}
