@@ -13,6 +13,7 @@ import { glob, winPath } from '@umijs/utils';
 import { readFileSync } from 'fs';
 import { basename, dirname, extname, format, join, relative } from 'path';
 import { getIdentifierDeclaration } from './astUtils';
+import { INULA_KEYS } from './constants';
 
 interface IOpts {
   contentTest?: (content: string) => Boolean;
@@ -62,9 +63,9 @@ export class Store {
     this.id = `store_${id}`;
     this.namespace =
       namespace || namesCache[file] || getNamespace(_file, absSrcPath);
-    if (this.namespace === 'create') {
+    if (INULA_KEYS.includes(this.namespace)) {
       const error = new Error(
-        `Store 导出命名为 create，createStore 为 openinula 保留关键字`,
+        `Store 导出命名为 ${this.namespace}，${this.namespace}Store 为 openinula 保留关键字`,
       );
       throw error;
     }
