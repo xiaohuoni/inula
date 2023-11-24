@@ -11,7 +11,7 @@ See our website [inula]() for more information.
 
 store 文件将会被自动挂为 `${store.id}Store` ，然后可以直接从 inula 中导出使用 import { helloStore } from 'inula'; 
 
-> 注意 createStore 是 openinula 导出的功能，所以无法创建一个id 为 create 的 store
+> 注意 createStore, clearStore 和 useStore 是 openinula 导出的功能，所以无法创建一个同名的 store
 
 对于某个 pages 文件夹下面的 store 也会默认挂载
 
