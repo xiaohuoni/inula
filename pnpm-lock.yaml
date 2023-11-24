@@ -120,21 +120,6 @@ importers:
         specifier: workspace:*
         version: link:../../packages/inula
 
-  examples/demo:
-    dependencies:
-      '@aluni/plugin-intl':
-        specifier: workspace:*
-        version: link:../../packages/plugin-intl
-      '@aluni/plugin-x':
-        specifier: workspace:*
-        version: link:../../packages/plugin-x
-      '@types/react':
-        specifier: ^18.2.37
-        version: 18.2.37
-      inula:
-        specifier: workspace:*
-        version: link:../../packages/inula
-
   examples/intl:
     dependencies:
       '@aluni/plugin-intl':
@@ -146,6 +131,21 @@ importers:
       inula:
         specifier: workspace:*
         version: link:../../packages/inula
+
+  examples/inula-request:
+    dependencies:
+      '@aluni/plugin-request':
+        specifier: workspace:*
+        version: link:../../packages/plugin-request
+      '@types/react':
+        specifier: ^18.2.37
+        version: 18.2.37
+      inula:
+        specifier: workspace:*
+        version: link:../../packages/inula
+      inula-request:
+        specifier: ^0.0.6
+        version: 0.0.6(openinula@0.0.1)
 
   packages/inula:
     dependencies:
@@ -173,6 +173,16 @@ importers:
       inula-intl:
         specifier: ^0.0.3
         version: 0.0.3(openinula@0.0.1)
+    devDependencies:
+      '@aluni/preset-inula':
+        specifier: workspace:*
+        version: link:../preset-inula
+
+  packages/plugin-request:
+    dependencies:
+      inula-request:
+        specifier: ^0.0.6
+        version: 0.0.6(openinula@0.0.1)
     devDependencies:
       '@aluni/preset-inula':
         specifier: workspace:*
@@ -4981,6 +4991,14 @@ packages:
 
   /inula-intl@0.0.3(openinula@0.0.1):
     resolution: {integrity: sha512-XX1Z0lQYyq5lHMLjpmxQlhu2jlhIiQK6PTt90xHP0TY0cvjcPCUy5oUh1aKEB9bma4y0lKRZWsGIiNB8KllgTA==}
+    peerDependencies:
+      openinula: ^0.0.1
+    dependencies:
+      openinula: 0.0.1
+    dev: false
+
+  /inula-request@0.0.6(openinula@0.0.1):
+    resolution: {integrity: sha512-TEF5yvzFkW+FSS4CDBp9G4bUb59PPQ98P9xvDhvlvTNjzdHqW+Q0fZSejS+tMaDaGFvfzZITZDhMqRxI0c1aWA==}
     peerDependencies:
       openinula: ^0.0.1
     dependencies:
