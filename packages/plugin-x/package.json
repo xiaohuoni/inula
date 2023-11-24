@@ -20,9 +20,11 @@
     "dev": "inula-scripts father dev"
   },
   "dependencies": {
-    "@aluni/preset-inula": "workspace:*",
-    "@umijs/bundler-utils": "^4.0.88",
+    "@umijs/bundler-utils": "4.0.88",
     "@umijs/utils": "4.0.88"
+  },
+  "devDependencies": {
+    "@aluni/preset-inula": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

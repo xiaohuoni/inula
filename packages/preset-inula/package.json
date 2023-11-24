@@ -21,6 +21,7 @@
     "test": "inula-scripts jest-turbo"
   },
   "dependencies": {
+    "@alita/plugin-azure": "^3.0.2",
     "@umijs/bundler-vite": "4.0.88",
     "@umijs/bundler-webpack": "4.0.88",
     "@umijs/preset-umi": "4.0.88",

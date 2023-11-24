@@ -4,6 +4,7 @@
   "scripts": {
     "build": "inula build",
     "build-analyze": "ANALYZE=1 inula build",
+    "createintl": "inula g intl haha --create",
     "dev": "inula dev",
     "preview": "inula preview",
     "setup": "inula setup",
@@ -11,7 +12,6 @@
   },
   "dependencies": {
     "@aluni/plugin-intl": "workspace:*",
-    "@aluni/plugin-x": "workspace:*",
     "@types/react": "^18.2.37",
     "inula": "workspace:*"
   }

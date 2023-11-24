@@ -21,3 +21,4 @@ dist
 .idea
 playwright-report
 /packages/inula/client
+.env.local
