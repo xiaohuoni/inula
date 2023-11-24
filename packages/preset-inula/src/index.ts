@@ -1,11 +1,16 @@
+export type { IAzureSend } from '@alita/plugin-azure';
 export type {
-  IApi,
   IConfig,
   IRoute,
   UmiApiRequest,
   UmiApiResponse,
   webpack,
 } from '@umijs/preset-umi';
+import type { IOnIntlAzure } from '@alita/plugin-azure';
+import { IApi as UmiIApi } from '@umijs/preset-umi';
+// 增加 azure api
+export type IApi = UmiIApi & { onIntlAzure: IOnIntlAzure };
+
 export default () => {
   return {
     plugins: [
@@ -119,7 +124,7 @@ export default () => {
       require.resolve('@umijs/preset-umi/dist/commands/preview'),
       // require.resolve('@umijs/preset-umi/dist/commands/mfsu/mfsu'),
       // require.resolve('@umijs/plugin-run'),
-
+      require.resolve('@alita/plugin-azure'),
       require.resolve('./config/inulaconfig'),
     ].filter(Boolean),
   };

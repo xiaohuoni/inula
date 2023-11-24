@@ -1,8 +1,8 @@
 {
-  "name": "@aluni/plugin-x",
+  "name": "@aluni/plugin-intl",
   "version": "0.0.0",
-  "description": "@aluni/plugin-x",
-  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-x#readme",
+  "description": "@aluni/plugin-intl",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-intl#readme",
   "bugs": "https://gitee.com/congxiaochen/inula/issues",
   "repository": {
     "type": "git",
@@ -21,7 +21,9 @@
   },
   "dependencies": {
     "@umijs/bundler-utils": "4.0.88",
-    "@umijs/utils": "4.0.88"
+    "@umijs/utils": "4.0.88",
+    "event-emitter": "~0.3.5",
+    "inula-intl": "^0.0.3"
   },
   "devDependencies": {
     "@aluni/preset-inula": "workspace:*"

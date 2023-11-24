@@ -13,6 +13,12 @@ export default (api: IApi) => {
 
   const configDefaults: Record<string, any> = {
     mfsu: false,
+    // 开发使用而已，能力可以有 inula 提供 aigc
+    azure: {
+      apiVersion: '2023-07-01-preview',
+      model: 'alita4',
+      resource: 'alita',
+    },
     ...api.userConfig,
   };
 
