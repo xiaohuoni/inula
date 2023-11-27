@@ -1,8 +1,8 @@
 {
-  "name": "@aluni/plugin-antd",
+  "name": "@aluni/plugin-antd-layout",
   "version": "0.0.0",
-  "description": "@aluni/plugin-antd",
-  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-antd#readme",
+  "description": "@aluni/plugin-antd-layout",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-antd-layout#readme",
   "bugs": "https://gitee.com/congxiaochen/inula/issues",
   "repository": {
     "type": "git",
@@ -20,9 +20,7 @@
     "dev": "inula-scripts father dev"
   },
   "dependencies": {
-    "@ant-design/icons": "^5.2.6",
-    "@emotion/css": "^11.11.2",
-    "antd": "^5.11.3"
+    "@ant-design/pro-components": "^2.6.43"
   },
   "devDependencies": {
     "@aluni/types": "workspace:*"

@@ -1,0 +1,16 @@
+{
+  "name": "@example/pro-layout",
+  "private": true,
+  "scripts": {
+    "build": "inula build",
+    "build-analyze": "ANALYZE=1 inula build",
+    "dev": "inula dev",
+    "preview": "inula preview",
+    "setup": "inula setup",
+    "start": "inula dev"
+  },
+  "dependencies": {
+    "@types/react": "^18.2.37",
+    "inula": "workspace:*"
+  }
+}
