@@ -1,4 +1,4 @@
-import { IApi } from '@aluni/preset-inula';
+import { IApi } from '@aluni/types';
 import { prettyPrintEsBuildErrors } from '@umijs/bundler-utils';
 import * as Babel from '@umijs/bundler-utils/compiled/babel/core';
 import * as parser from '@umijs/bundler-utils/compiled/babel/parser';

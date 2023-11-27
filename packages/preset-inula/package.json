@@ -21,7 +21,12 @@
     "test": "inula-scripts jest-turbo"
   },
   "dependencies": {
-    "@alita/plugin-azure": "^3.0.2",
+    "@alita/plugin-azure": "^3.0.4",
+    "@aluni/plugin-antd": "workspace:*",
+    "@aluni/plugin-intl": "workspace:*",
+    "@aluni/plugin-request": "workspace:*",
+    "@aluni/plugin-x": "workspace:*",
+    "@aluni/types": "workspace:*",
     "@umijs/bundler-vite": "4.0.88",
     "@umijs/bundler-webpack": "4.0.88",
     "@umijs/preset-umi": "4.0.88",

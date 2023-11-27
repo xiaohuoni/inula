@@ -1,4 +1,4 @@
-import type { IApi } from '@aluni/preset-inula';
+import type { IApi } from '@aluni/types';
 import { resolve, winPath } from '@umijs/utils';
 import { dirname } from 'path';
 import { withTmpPath } from './withTmpPath';

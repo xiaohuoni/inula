@@ -24,7 +24,7 @@
     "inula-request": "^0.0.7"
   },
   "devDependencies": {
-    "@aluni/preset-inula": "workspace:*"
+    "@aluni/types": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

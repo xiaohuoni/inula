@@ -1,4 +1,4 @@
-import { IApi } from '@aluni/preset-inula';
+import { IApi } from '@aluni/types';
 import { fsExtra, logger } from '@umijs/utils';
 import { join } from 'path';
 import { StoreUtils } from './storesUtils';

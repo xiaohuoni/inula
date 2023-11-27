@@ -1,8 +1,8 @@
 {
-  "name": "@aluni/plugin-antd",
+  "name": "@aluni/types",
   "version": "0.0.0",
-  "description": "@aluni/plugin-antd",
-  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-antd#readme",
+  "description": "@aluni/types",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/types#readme",
   "bugs": "https://gitee.com/congxiaochen/inula/issues",
   "repository": {
     "type": "git",
@@ -20,10 +20,8 @@
     "dev": "inula-scripts father dev"
   },
   "dependencies": {
-    "antd": "^5.11.3"
-  },
-  "devDependencies": {
-    "@aluni/types": "workspace:*"
+    "@alita/plugin-azure": "^3.0.4",
+    "@umijs/preset-umi": "4.0.88"
   },
   "publishConfig": {
     "access": "public"

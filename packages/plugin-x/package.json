@@ -24,7 +24,7 @@
     "@umijs/utils": "4.0.88"
   },
   "devDependencies": {
-    "@aluni/preset-inula": "workspace:*"
+    "@aluni/types": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

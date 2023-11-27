@@ -1,15 +1,4 @@
-export type { IAzureSend } from '@alita/plugin-azure';
-export type {
-  IConfig,
-  IRoute,
-  UmiApiRequest,
-  UmiApiResponse,
-  webpack,
-} from '@umijs/preset-umi';
-import type { IOnIntlAzure } from '@alita/plugin-azure';
-import { IApi as UmiIApi } from '@umijs/preset-umi';
-// 增加 azure api
-export type IApi = UmiIApi & { onIntlAzure: IOnIntlAzure };
+export * from '@aluni/types';
 
 export default () => {
   return {
@@ -126,6 +115,13 @@ export default () => {
       // require.resolve('@umijs/plugin-run'),
       require.resolve('@alita/plugin-azure'),
       require.resolve('./config/inulaconfig'),
+
+      // business
+      // 国际化插件要在前面，因为它提供了 api 供 antd 插件使用
+      require.resolve('@aluni/plugin-intl'),
+      require.resolve('@aluni/plugin-antd'),
+      require.resolve('@aluni/plugin-request'),
+      require.resolve('@aluni/plugin-x'),
     ].filter(Boolean),
   };
 };

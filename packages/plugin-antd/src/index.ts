@@ -1,4 +1,4 @@
-import { IApi } from '@aluni/preset-inula';
+import { IApi } from '@aluni/types';
 import { resolve } from '@umijs/utils';
 import { dirname } from 'path';
 

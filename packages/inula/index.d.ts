@@ -6,5 +6,5 @@ export type {
   IRoute,
   UmiApiRequest,
   UmiApiResponse,
-} from '@aluni/preset-inula';
+} from '@aluni/types';
 export * from './dist';
