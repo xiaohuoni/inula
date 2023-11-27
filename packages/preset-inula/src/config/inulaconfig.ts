@@ -1,5 +1,7 @@
 import { IApi } from '@umijs/preset-umi';
-import { dirname } from 'path';
+import { copyFileSync } from 'fs';
+import { dirname, join } from 'path';
+import { DEFAULT_FAVICON_FILE, DEFAULT_FAVICON_FILE_NAME } from '../constants';
 import { resolveProjectDep } from '../utils/resolveProjectDep';
 
 export default (api: IApi) => {
@@ -31,6 +33,38 @@ export default (api: IApi) => {
     memo.openinula.path = inulaPath;
     memo.openinula.version = require('openinula/package.json').version;
     return memo;
+  });
+
+  api.addBeforeMiddlewares(() => [
+    (req, res, next) => {
+      // 开发的时候，用户没有设置 favicon ，我们塞了一个
+      if (
+        !(req.path === `${api.config.publicPath}${DEFAULT_FAVICON_FILE_NAME}`)
+      ) {
+        next();
+      } else {
+        res.sendFile(DEFAULT_FAVICON_FILE);
+      }
+    },
+  ]);
+
+  api.modifyHTMLFavicon((memo) => {
+    // 用户没有设置，要赛一个
+    if (!api.appData.faviconFiles.length) {
+      memo.push(`${api.config.publicPath}${DEFAULT_FAVICON_FILE_NAME}`);
+    }
+    return memo;
+  });
+
+  api.onBuildComplete(({ err }) => {
+    if (err) return;
+    // 用户没有设置，要拷贝一个
+    if (!api.appData.faviconFiles || !api.appData.faviconFiles.length) {
+      copyFileSync(
+        DEFAULT_FAVICON_FILE,
+        join(api.paths.absOutputPath, DEFAULT_FAVICON_FILE_NAME),
+      );
+    }
   });
   api.modifyDefaultConfig((memo: any) => {
     Object.keys(configDefaults).forEach((key) => {
