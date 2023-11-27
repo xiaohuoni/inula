@@ -23,6 +23,7 @@
   "dependencies": {
     "@alita/plugin-azure": "^3.0.4",
     "@aluni/plugin-antd": "workspace:*",
+    "@aluni/plugin-antd-layout": "workspace:*",
     "@aluni/plugin-intl": "workspace:*",
     "@aluni/plugin-request": "workspace:*",
     "@aluni/plugin-x": "workspace:*",

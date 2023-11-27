@@ -121,6 +121,7 @@ export default () => {
       // 国际化插件要在前面，因为它提供了 api 供 antd 插件使用
       require.resolve('@aluni/plugin-intl'),
       require.resolve('@aluni/plugin-antd'),
+      require.resolve('@aluni/plugin-antd-layout'),
       require.resolve('@aluni/plugin-request'),
       require.resolve('@aluni/plugin-x'),
     ].filter(Boolean),

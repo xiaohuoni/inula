@@ -20,14 +20,28 @@ export function resolveProjectDep(opts: {
 }
 
 export default (api: IApi) => {
-  let pkgPath: string;
+  let antdPath: string;
+  let iconsPath: string;
+  let emotionPath: string;
   try {
-    pkgPath =
+    antdPath =
       resolveProjectDep({
         pkg: api.pkg,
         cwd: api.cwd,
         dep: 'antd',
       }) || dirname(require.resolve('antd/package.json'));
+    iconsPath =
+      resolveProjectDep({
+        pkg: api.pkg,
+        cwd: api.cwd,
+        dep: '@ant-design/icons',
+      }) || dirname(require.resolve('@ant-design/icons/package.json'));
+    emotionPath =
+      resolveProjectDep({
+        pkg: api.pkg,
+        cwd: api.cwd,
+        dep: '@emotion/css',
+      }) || dirname(require.resolve('@emotion/css/package.json'));
   } catch (e) {}
 
   api.describe({
@@ -46,24 +60,28 @@ export default (api: IApi) => {
   });
 
   api.modifyAppData((memo) => {
-    const version = require(`${pkgPath}/package.json`).version;
+    const version = require(`${antdPath}/package.json`).version;
     memo.antd = {
-      pkgPath,
+      antdPath,
       version,
     };
     return memo;
   });
 
   api.modifyTSConfig((memo) => {
-    memo.compilerOptions.paths.antd = [pkgPath];
-    memo.compilerOptions.paths['inula/antd'] = [pkgPath];
+    memo.compilerOptions.paths.antd = [antdPath];
+    memo.compilerOptions.paths['@ant-design/icons'] = [iconsPath];
+    memo.compilerOptions.paths['@emotion/css'] = [emotionPath];
+    memo.compilerOptions.paths['inula/antd'] = [antdPath];
     return memo;
   });
 
   api.modifyConfig((memo) => {
-    memo.alias.antd = pkgPath;
+    memo.alias.antd = antdPath;
+    memo.alias['@ant-design/icons'] = iconsPath;
+    memo.alias['@emotion/css'] = emotionPath;
     memo.alias = {
-      'inula/antd': pkgPath,
+      'inula/antd': antdPath,
       ...memo.alias,
     };
     return memo;
