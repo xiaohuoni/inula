@@ -115,6 +115,7 @@ export default () => {
       // require.resolve('@umijs/plugin-run'),
       require.resolve('@alita/plugin-azure'),
       require.resolve('./config/inulaconfig'),
+      require.resolve('./features/iloading'),
 
       // business
       // 国际化插件要在前面，因为它提供了 api 供 antd 插件使用
