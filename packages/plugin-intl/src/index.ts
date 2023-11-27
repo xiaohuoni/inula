@@ -1,4 +1,4 @@
-import { IApi, IAzureSend } from '@aluni/preset-inula';
+import { IApi, IAzureSend } from '@aluni/types';
 import esbuild from '@umijs/bundler-utils/compiled/esbuild';
 import {
   fsExtra,

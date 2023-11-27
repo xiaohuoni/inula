@@ -10,7 +10,6 @@
     "start": "inula dev"
   },
   "dependencies": {
-    "@aluni/plugin-antd": "workspace:*",
     "@types/react": "^18.2.37",
     "inula": "workspace:*"
   }

@@ -104,9 +104,6 @@ importers:
 
   examples/antd:
     dependencies:
-      '@aluni/plugin-antd':
-        specifier: workspace:*
-        version: link:../../packages/plugin-antd
       '@types/react':
         specifier: ^18.2.37
         version: 18.2.37
@@ -116,9 +113,6 @@ importers:
 
   examples/boilerplate:
     dependencies:
-      '@aluni/plugin-x':
-        specifier: workspace:*
-        version: link:../../packages/plugin-x
       '@types/react':
         specifier: ^18.2.37
         version: 18.2.37
@@ -134,9 +128,6 @@ importers:
 
   examples/intl:
     dependencies:
-      '@aluni/plugin-intl':
-        specifier: workspace:*
-        version: link:../../packages/plugin-intl
       '@types/react':
         specifier: ^18.2.37
         version: 18.2.37
@@ -146,9 +137,6 @@ importers:
 
   examples/inula-request:
     dependencies:
-      '@aluni/plugin-request':
-        specifier: workspace:*
-        version: link:../../packages/plugin-request
       '@types/react':
         specifier: ^18.2.37
         version: 18.2.37
@@ -174,9 +162,9 @@ importers:
         specifier: ^5.11.3
         version: 5.11.3(react-dom@18.1.0)(react@18.1.0)
     devDependencies:
-      '@aluni/preset-inula':
+      '@aluni/types':
         specifier: workspace:*
-        version: link:../preset-inula
+        version: link:../types
 
   packages/plugin-intl:
     dependencies:
@@ -193,9 +181,9 @@ importers:
         specifier: ^0.0.3
         version: 0.0.3(openinula@0.0.1)
     devDependencies:
-      '@aluni/preset-inula':
+      '@aluni/types':
         specifier: workspace:*
-        version: link:../preset-inula
+        version: link:../types
 
   packages/plugin-request:
     dependencies:
@@ -206,9 +194,9 @@ importers:
         specifier: ^0.0.7
         version: 0.0.7(openinula@0.0.1)
     devDependencies:
-      '@aluni/preset-inula':
+      '@aluni/types':
         specifier: workspace:*
-        version: link:../preset-inula
+        version: link:../types
 
   packages/plugin-x:
     dependencies:
@@ -219,15 +207,30 @@ importers:
         specifier: 4.0.88
         version: 4.0.88
     devDependencies:
-      '@aluni/preset-inula':
+      '@aluni/types':
         specifier: workspace:*
-        version: link:../preset-inula
+        version: link:../types
 
   packages/preset-inula:
     dependencies:
       '@alita/plugin-azure':
-        specifier: ^3.0.2
-        version: 3.0.2
+        specifier: ^3.0.4
+        version: 3.0.4
+      '@aluni/plugin-antd':
+        specifier: workspace:*
+        version: link:../plugin-antd
+      '@aluni/plugin-intl':
+        specifier: workspace:*
+        version: link:../plugin-intl
+      '@aluni/plugin-request':
+        specifier: workspace:*
+        version: link:../plugin-request
+      '@aluni/plugin-x':
+        specifier: workspace:*
+        version: link:../plugin-x
+      '@aluni/types':
+        specifier: workspace:*
+        version: link:../types
       '@umijs/bundler-vite':
         specifier: 4.0.88
         version: 4.0.88(@types/node@17.0.35)(postcss@8.4.31)
@@ -247,12 +250,21 @@ importers:
         specifier: 0.0.1
         version: 0.0.1
 
+  packages/types:
+    dependencies:
+      '@alita/plugin-azure':
+        specifier: ^3.0.4
+        version: 3.0.4
+      '@umijs/preset-umi':
+        specifier: 4.0.88
+        version: 4.0.88(@types/node@17.0.35)(typescript@4.7.2)(webpack@5.89.0)
+
   scripts: {}
 
 packages:
 
-  /@alita/plugin-azure@3.0.2:
-    resolution: {integrity: sha512-gNS0OGHkghoVc5mznVGHj3oj+SuDqRei2XxrEMWy4aWrp1x6HMiptpH+qPbL/aTP6hoBdkophQv4lM+dPQvWjQ==}
+  /@alita/plugin-azure@3.0.4:
+    resolution: {integrity: sha512-mqVdpdGuC62keQLKEjRO96s5IEtveoxKXIzt0pJecXe5N8mErR+1skiih7HEwRYTgk+M1PlPmAzhHrVATVa3uA==}
     dependencies:
       openai: 4.19.1
     transitivePeerDependencies:
