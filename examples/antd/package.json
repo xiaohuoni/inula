@@ -1,0 +1,17 @@
+{
+  "name": "@example/antd",
+  "private": true,
+  "scripts": {
+    "build": "inula build",
+    "build-analyze": "ANALYZE=1 inula build",
+    "dev": "inula dev",
+    "preview": "inula preview",
+    "setup": "inula setup",
+    "start": "inula dev"
+  },
+  "dependencies": {
+    "@aluni/plugin-antd": "workspace:*",
+    "@types/react": "^18.2.37",
+    "inula": "workspace:*"
+  }
+}

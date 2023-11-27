@@ -1,0 +1,34 @@
+{
+  "name": "@aluni/plugin-antd",
+  "version": "0.0.0",
+  "description": "@aluni/plugin-antd",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-antd#readme",
+  "bugs": "https://gitee.com/congxiaochen/inula/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/congxiaochen/inula"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "inula-scripts father build",
+    "build:deps": "inula-scripts bundleDeps",
+    "dev": "inula-scripts father dev"
+  },
+  "dependencies": {
+    "antd": "^5.11.3"
+  },
+  "devDependencies": {
+    "@aluni/preset-inula": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ]
+}
