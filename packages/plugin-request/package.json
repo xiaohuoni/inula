@@ -20,7 +20,8 @@
     "dev": "inula-scripts father dev"
   },
   "dependencies": {
-    "inula-request": "^0.0.6"
+    "ahooks": "^3.7.8",
+    "inula-request": "^0.0.7"
   },
   "devDependencies": {
     "@aluni/preset-inula": "workspace:*"

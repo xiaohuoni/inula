@@ -1,5 +1,7 @@
 import { ir } from 'inula';
 
-export async function sayHi(): Promise<any> {
-  return ir.get('/hello1');
+export async function sayHi(params: Record<string, any>): Promise<any> {
+  return ir.get('/hello', {
+    params,
+  });
 }

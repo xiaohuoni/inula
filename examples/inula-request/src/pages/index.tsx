@@ -1,13 +1,15 @@
 import { sayHi } from '@/services/api';
-import { useState } from 'inula';
+import { useRequest, useState } from 'inula';
 
-// TODO: useIR 报错
 const Page = () => {
   const [title, setTitle] = useState();
+  const { data, error } = useRequest(sayHi, {});
+  console.log(data);
+  console.log(error);
   return (
     <div
       onClick={async () => {
-        const { data } = await sayHi();
+        const { data } = await sayHi({});
         setTitle(data?.text);
       }}
     >
