@@ -31,6 +31,7 @@ export default (api: IApi) => {
   } catch (e) {}
 
   api.describe({
+    key: 'antd',
     config: {
       schema({ zod }) {
         return zod.object({}).deepPartial();
@@ -53,10 +54,18 @@ export default (api: IApi) => {
     return memo;
   });
 
+  api.modifyTSConfig((memo) => {
+    memo.compilerOptions.paths.antd = [pkgPath];
+    memo.compilerOptions.paths['inula/antd'] = [pkgPath];
+    return memo;
+  });
+
   api.modifyConfig((memo) => {
-    // antd import
     memo.alias.antd = pkgPath;
-    memo.alias[`${api.appData.framework}/antd`] = pkgPath;
+    memo.alias = {
+      'inula/antd': pkgPath,
+      ...memo.alias,
+    };
     return memo;
   });
 
