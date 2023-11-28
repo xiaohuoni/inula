@@ -130,7 +130,7 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
   // pnpm publish
   logger.event('pnpm publish');
   $.verbose = false;
-  const innerPkgs = pkgs.filter((pkg) => !['umi', 'max'].includes(pkg));
+  const innerPkgs = pkgs.filter((pkg) => !['inula'].includes(pkg));
 
   // check 2fa config
   let otpArg: string[] = [];
@@ -153,9 +153,7 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
       logger.info(`+ ${pkg}`);
     }),
   );
-  await $`cd packages/umi && pnpm publish --no-git-checks --tag ${tag} ${otpArg}`;
-  logger.info(`+ umi`);
-  await $`cd packages/max && pnpm publish --no-git-checks --tag ${tag} ${otpArg}`;
-  logger.info(`+ @umijs/max`);
+  await $`cd packages/inula && pnpm publish --no-git-checks --tag ${tag} ${otpArg}`;
+  logger.info(`+ inula`);
   $.verbose = true;
 })();
