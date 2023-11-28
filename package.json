@@ -6,7 +6,7 @@
     "bootstrap": "inula-scripts bootstrap",
     "build": "inula-scripts turbo build",
     "build:release": "inula-scripts turbo build --no-cache",
-    "check:packageFiles": "umi-scripts checkPackageFiles",
+    "check:packageFiles": "inula-scripts checkPackageFiles",
     "cnpm": "pnpm i --registry=https://registry.npmmirror.com",
     "dep:update": "pnpm up --interactive --latest --recursive",
     "dev": "inula-scripts turbo dev --parallel",
