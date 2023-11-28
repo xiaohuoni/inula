@@ -25,8 +25,8 @@ export async function buildDep(opts: any) {
     if (opts.pkgName === 'mini-css-extract-plugin') {
       resolvePath = 'mini-css-extract-plugin/dist/index';
     }
-    entry = require.resolve(resolvePath, {
-      paths: [nodeModulesPath],
+    entry = resolve.sync(resolvePath, {
+      basedir: nodeModulesPath,
     });
   } else {
     entry = path.join(opts.base, opts.file);
@@ -57,6 +57,34 @@ Object.keys(exported).forEach(function (key) {
       if (opts.file === './bundles/webpack/bundle') {
         delete opts.webpackExternals['webpack'];
       }
+
+      // babel pre rewrite
+      if (opts.file === './bundles/babel/bundle') {
+        // See https://github.com/umijs/umi/issues/10356
+        // The inherited `browserslist` config is dynamic loaded
+        const babelCorePkg = require.resolve('@babel/core/package.json', {
+          paths: [path.join(PATHS.PACKAGES, './bundler-utils')],
+        });
+        // And need overrides a consistent version of `browserslist` in `packages.json#pnpm.overrides`
+        const browserslistPkg = require.resolve('browserslist/package.json', {
+          paths: [path.dirname(babelCorePkg)],
+        });
+        const nodePartFile = path.join(
+          path.dirname(browserslistPkg),
+          'node.js',
+        );
+        const originContent = fs.readFileSync(nodePartFile, 'utf-8');
+        // https://github.com/browserslist/browserslist/blob/fc5fc088c640466df62a6b6c86154b19be3de821/node.js#L176
+        fs.writeFileSync(
+          nodePartFile,
+          originContent.replace(
+            /require\(require\.resolve/g,
+            'eval("require")(require.resolve',
+          ),
+          'utf-8',
+        );
+      }
+
       let { code, assets } = await ncc(entry, {
         externals: opts.webpackExternals,
         minify: !!opts.minify,
@@ -123,18 +151,44 @@ Object.keys(exported).forEach(function (key) {
           'execa',
           'globby',
           'os-locale',
+          'gzip-size',
+          'prettier',
           'copy-webpack-plugin',
+          'zx',
+          '@vitejs/plugin-legacy',
+          '@vitejs/plugin-vue',
+          '@clack/prompts',
         ].includes(opts.pkgName)
       ) {
         code = code.replace(/require\("node:/g, 'require("');
       }
+
+      // in production, we have the global all `core-js` polyfill (feature/polyfill.ts)
+      // don't need the polyfill added by vite
+      // https://github.com/vitejs/vite/blob/d953536aae448e2bea0f3a7cb3c0062b16d45597/packages/plugin-legacy/src/index.ts#L257
+      if (opts.pkgName === '@vitejs/plugin-legacy') {
+        code = code.replace(
+          'await detectPolyfills(`Promise.resolve(); Promise.all();`',
+          'await (()=>{})(`Promise.resolve(); Promise.all();`',
+        );
+      }
+
       if (
         code.includes('"node:') &&
         opts.pkgName && // skip local file bundle like babel/bundle.js
         opts.pkgName !== 'stylelint-declaration-block-no-ignored-properties' &&
-        opts.pkgName !== 'vite'
+        opts.pkgName !== 'vite' &&
+        opts.pkgName !== 'https-proxy-agent' &&
+        opts.pkgName !== 'socks-proxy-agent'
       ) {
         throw new Error(`${opts.pkgName} has "node:"`);
+      }
+      // patch less resolve path to umi compiled path
+      if (opts.pkgName === 'vite') {
+        code = code.replace(
+          'loadPreprocessor("less"',
+          'loadPreprocessor("@umijs/bundler-utils/compiled/less"',
+        );
       }
       fs.writeFileSync(path.join(target, 'index.js'), code, 'utf-8');
 
@@ -160,41 +214,6 @@ Object.keys(exported).forEach(function (key) {
       }
       if (opts.pkgName === 'fork-ts-checker-webpack-plugin') {
         fs.removeSync(path.join(target, 'typescript.js'));
-      }
-
-      // for bundler-vite
-      if (opts.pkgName === 'vite') {
-        const COMPILED_DIR = path.join(opts.base, 'compiled');
-        const { compiledConfig } = require(`${opts.base}/package.json`);
-
-        // generate externalized type from sibling packages (such as @umijs/bundler-utils)
-        Object.entries<string>(compiledConfig.externals)
-          .filter(
-            ([name, target]) =>
-              target.startsWith('@umijs/') &&
-              compiledConfig.extraDtsExternals.includes(name),
-          )
-          .forEach(([name, target]) => {
-            fs.writeFileSync(
-              path.join(COMPILED_DIR, `${name}.d.ts`),
-              `export * from '${target}';`,
-              'utf-8',
-            );
-          });
-
-        // copy sourcemap for vite client scripts
-        fs.copyFileSync(
-          require.resolve('vite/dist/client/client.mjs.map', {
-            paths: [opts.base],
-          }),
-          path.join(COMPILED_DIR, 'vite', 'client.mjs.map'),
-        );
-        fs.copyFileSync(
-          require.resolve('vite/dist/client/env.mjs.map', {
-            paths: [opts.base],
-          }),
-          path.join(COMPILED_DIR, 'vite', 'env.mjs.map'),
-        );
       }
 
       // for bundler-webpack
@@ -255,12 +274,14 @@ Object.keys(exported).forEach(function (key) {
           'utf-8',
         );
       }
-      const { name, author, license, types, typing, typings } = JSON.parse(
-        fs.readFileSync(path.join(pkgRoot, 'package.json'), 'utf-8'),
-      );
+      const { name, author, license, types, typing, typings, version } =
+        JSON.parse(
+          fs.readFileSync(path.join(pkgRoot, 'package.json'), 'utf-8'),
+        );
       fs.writeJSONSync(path.join(target, 'package.json'), {
         ...{},
         ...{ name },
+        ...{ version },
         ...(author ? { author } : undefined),
         ...(license ? { license } : undefined),
         ...(types ? { types } : undefined),

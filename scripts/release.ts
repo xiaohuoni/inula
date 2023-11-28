@@ -1,5 +1,4 @@
 import { logger } from '@umijs/utils';
-import execa from 'execa';
 import { existsSync } from 'fs';
 import getGitRepoInfo from 'git-repo-info';
 import { join } from 'path';
@@ -7,8 +6,6 @@ import rimraf from 'rimraf';
 import 'zx/globals';
 import { PATHS } from './.internal/constants';
 import { assert, eachPkg, getPkgs } from './.internal/utils';
-
-const cwd = process.cwd();
 
 (async () => {
   const { branch } = getGitRepoInfo();
@@ -35,6 +32,37 @@ const cwd = process.cwd();
     'npm registry is not https://registry.npmjs.org/',
   );
 
+  // check package changed
+  logger.event('check package changed');
+  const changed = (await $`lerna changed --loglevel error`).stdout.trim();
+  assert(changed, `no package is changed`);
+
+  // check npm ownership
+  logger.event('check npm ownership');
+  const whoami = (await $`npm whoami`).stdout.trim();
+  try {
+    await Promise.all(
+      ['inula'].map(async (pkg) => {
+        const owners = (await $`npm owner ls ${pkg}`).stdout
+          .trim()
+          .split('\n')
+          .map((line) => {
+            return line.split(' ')[0];
+          });
+        assert(owners.includes(whoami), `${pkg} is not owned by ${whoami}`);
+      }),
+    );
+  } catch (e: any) {
+    // only throw ownership error
+    if (e.message.includes('is not owned by')) {
+      throw e;
+    }
+  }
+
+  // check package.json
+  logger.event('check package.json info');
+  await $`npm run check:packageFiles`;
+
   // clean
   logger.event('clean');
   eachPkg(pkgs, ({ dir, name }) => {
@@ -45,16 +73,11 @@ const cwd = process.cwd();
   // build packages
   logger.event('build packages');
   await $`npm run build:release`;
-  await $`npm run build:extra`;
-  await $`npm run build:client`;
 
-  logger.event('check client code change');
-  const isGitCleanAfterClientBuild = (
-    await $`git status --porcelain`
-  ).stdout.trim().length;
-  assert(!isGitCleanAfterClientBuild, 'client code is updated');
-
-  const version = require('../packages/inula/package.json').version;
+  // bump version
+  logger.event('bump version');
+  await $`lerna version --exact --no-commit-hooks --no-git-tag-version --no-push --loglevel error`;
+  const version = require(PATHS.LERNA_CONFIG).version;
   let tag = 'latest';
   if (
     version.includes('-alpha.') ||
@@ -90,33 +113,24 @@ const cwd = process.cwd();
   await $`pnpm i`;
   $.verbose = true;
 
-  const isGitClean2 = (await $`git status --porcelain`).stdout.trim().length;
+  // commit
+  logger.event('commit');
+  await $`git commit --all --message "release: ${version}"`;
 
-  if (isGitClean2) {
-    // commit
-    logger.event('commit');
-
-    await $`git commit --all --message "release: ${version}"`;
+  // git tag
+  if (tag !== 'canary') {
+    logger.event('git tag');
+    await $`git tag v${version}`;
   }
 
-  try {
-    // git tag
-    if (tag !== 'canary') {
-      logger.event('git tag');
-      await $`git tag v${version}`;
-    }
+  // git push
+  logger.event('git push');
+  await $`git push origin ${branch} --tags`;
 
-    // git push
-    logger.event('git push');
-    await $`git push origin ${branch} --tags`;
-  } catch (error) {
-    logger.event('skip git push');
-  }
-
-  // npm publish
+  // pnpm publish
   logger.event('pnpm publish');
   $.verbose = false;
-  const innerPkgs = pkgs.filter((pkg) => !['alita'].includes(pkg));
+  const innerPkgs = pkgs.filter((pkg) => !['umi', 'max'].includes(pkg));
 
   // check 2fa config
   let otpArg: string[] = [];
@@ -135,25 +149,13 @@ const cwd = process.cwd();
 
   await Promise.all(
     innerPkgs.map(async (pkg) => {
-      const pkgPath = join(cwd, 'packages', pkg);
-      const { name, version } = require(join(pkgPath, 'package.json'));
-
-      // npm view xxxx version
-      const { stdout } = execa.sync('npm', ['view', name, 'version'], {
-        cwd: pkgPath,
-      });
-      if (stdout === version) {
-        console.log(`Skip Publish package ${name}`);
-      } else {
-        await $`cd packages/${pkg} && npm publish --tag ${tag} ${otpArg}`;
-        logger.info(`+ @alitajs/${pkg} ${version}`);
-      }
+      await $`cd packages/${pkg} && pnpm publish --no-git-checks --tag ${tag} ${otpArg}`;
+      logger.info(`+ ${pkg}`);
     }),
   );
-  await $`cd packages/inula && npm publish --tag ${tag} ${otpArg}`;
-  logger.info(`+ inula ${version}`);
-
+  await $`cd packages/umi && pnpm publish --no-git-checks --tag ${tag} ${otpArg}`;
+  logger.info(`+ umi`);
+  await $`cd packages/max && pnpm publish --no-git-checks --tag ${tag} ${otpArg}`;
+  logger.info(`+ @umijs/max`);
   $.verbose = true;
-
-  // $.verbose = true;
 })();

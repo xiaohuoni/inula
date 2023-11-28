@@ -7,7 +7,7 @@ const chalk = require('@umijs/utils/compiled/chalk').default
 const assert = require('assert')
 
 const argv = process.argv.slice(2)
-const name = argv[0]
+const [name, ...throughArgs] = argv
 const scriptsPath = join(__dirname, `../${name}.ts`)
 
 assert(
@@ -17,9 +17,12 @@ assert(
 
 console.log(chalk.cyan(`inula-scripts: ${name}\n`))
 
+// current dir path may contain spaces
+// https://github.com/umijs/umi/issues/9865
+const scriptPathAsStr = JSON.stringify(scriptsPath)
 const spawn = sync(
-  'esno',
-  [scriptsPath, ...argv.slice(1)],
+  'tsx',
+  [scriptPathAsStr, ...throughArgs],
   {
     env: process.env,
     cwd: process.cwd(),
