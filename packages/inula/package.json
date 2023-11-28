@@ -17,10 +17,8 @@
   "files": [
     "assets",
     "dist",
-    "templates",
+    "client",
     "index.d.ts",
-    "index.esm.js",
-    "index.js",
     "bin"
   ],
   "scripts": {
