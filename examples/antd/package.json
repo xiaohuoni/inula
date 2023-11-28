@@ -7,7 +7,7 @@
     "dev": "inula dev",
     "preview": "inula preview",
     "setup": "inula setup",
-    "start": "inula dev"
+    "start": "npm run dev"
   },
   "dependencies": {
     "@types/react": "^18.2.37",
