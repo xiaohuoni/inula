@@ -6,7 +6,6 @@ export const PATHS = {
   PACKAGES: join(ROOT, './packages'),
   EXAMPLES: join(ROOT, './examples'),
   LERNA_CONFIG: join(ROOT, './lerna.json'),
-  JEST_TURBO_CONFIG: join(ROOT, './jest.turbo.config.ts'),
 } as const;
 
 export const SCRIPTS = {

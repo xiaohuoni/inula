@@ -26,7 +26,7 @@ import { setExcludeFolder } from './.internal/utils';
   }
 
   function getVersion() {
-    return '0.0.0';
+    return require(PATHS.LERNA_CONFIG).version;
   }
 
   async function bootstrapPkg(opts: any) {
@@ -109,6 +109,17 @@ import { setExcludeFolder } from './.internal/utils';
         'utf-8',
       );
 
+      // .fatherrc.ts
+      await fs.writeFile(
+        path.join(pkgDir, '.fatherrc.ts'),
+        `import { defineConfig } from 'father';
+
+export default defineConfig({
+  extends: '../../.fatherrc.base.ts',
+});\n`,
+        'utf-8',
+      );
+
       // src/index.ts
       const srcDir = path.join(pkgDir, 'src');
       if (!fs.existsSync(srcDir)) {
@@ -120,17 +131,7 @@ import { setExcludeFolder } from './.internal/utils';
           `
 export default () => {
   return '${name}';
-};\n`.trimLeft(),
-          'utf-8',
-        );
-        await fs.writeFile(
-          path.join(pkgDir, '.fatherrc.ts'),
-          `
-import { defineConfig } from 'father';
-
-export default defineConfig({
-   extends: '../../.fatherrc.base.ts',
-});`.trimLeft(),
+};\n`.trimStart(),
           'utf-8',
         );
       }
