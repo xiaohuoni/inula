@@ -10,7 +10,6 @@
     "start": "npm run dev"
   },
   "dependencies": {
-    "@types/react": "^18.2.37",
     "inula": "workspace:*"
   }
 }

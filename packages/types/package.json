@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@alita/plugin-azure": "^3.0.4",
+    "@types/react": "^18.2.39",
     "@umijs/preset-umi": "4.0.88"
   },
   "publishConfig": {
