@@ -1,0 +1,41 @@
+{
+  "name": "@aluni/plugin-openapi",
+  "version": "0.0.1-canary.1",
+  "description": "@aluni/plugin-openapi",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-openapi#readme",
+  "bugs": "https://gitee.com/congxiaochen/inula/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/congxiaochen/inula"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "inula-scripts father build",
+    "build:deps": "inula-scripts bundleDeps",
+    "dev": "inula-scripts father dev"
+  },
+  "dependencies": {
+    "@umijs/bundler-utils": "4.0.88",
+    "@umijs/openapi": "^1.5.1",
+    "@umijs/utils": "4.0.88",
+    "rimraf": "^3.0.2",
+    "serve-static": "^1.15.0",
+    "swagger-ui-dist": "^4.19.1"
+  },
+  "devDependencies": {
+    "@aluni/types": "workspace:*",
+    "@types/rimraf": "^3.0.2",
+    "@types/serve-static": "^1.13.10"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ]
+}

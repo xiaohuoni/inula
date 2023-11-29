@@ -5,6 +5,7 @@
     "build": "inula build",
     "build-analyze": "ANALYZE=1 inula build",
     "dev": "inula dev",
+    "openapi": "inula openapi",
     "preview": "inula preview",
     "setup": "inula setup",
     "start": "npm run dev"
