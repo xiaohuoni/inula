@@ -2,7 +2,7 @@
   "name": "@example/cli",
   "private": true,
   "scripts": {
-    "call": "inula version",
+    "call": "inula",
     "start": "npm run dev"
   },
   "dependencies": {
