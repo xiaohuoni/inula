@@ -26,6 +26,7 @@
     "@aluni/plugin-antd": "workspace:*",
     "@aluni/plugin-antd-layout": "workspace:*",
     "@aluni/plugin-intl": "workspace:*",
+    "@aluni/plugin-openapi": "workspace:*",
     "@aluni/plugin-request": "workspace:*",
     "@aluni/plugin-x": "workspace:*",
     "@aluni/types": "workspace:*",
