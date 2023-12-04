@@ -55,7 +55,7 @@ export default (api: IApi) => {
 
   api.modifyHTMLFavicon((memo) => {
     // 用户没有设置，要赛一个
-    if (!api.appData.faviconFiles.length) {
+    if (!api.appData.faviconFiles || !api.appData.faviconFiles.length) {
       memo.push(`${api.config.publicPath}${DEFAULT_FAVICON_FILE_NAME}`);
     }
     return memo;

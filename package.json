@@ -3,11 +3,13 @@
   "scripts": {
     "bootstrap": "inula-scripts bootstrap",
     "build": "inula-scripts turbo build",
+    "build:docs": "inula build",
     "build:release": "inula-scripts turbo build --no-cache",
     "check:packageFiles": "inula-scripts checkPackageFiles",
     "cnpm": "pnpm i --registry=https://registry.npmmirror.com",
     "dep:update": "pnpm up --interactive --latest --recursive",
     "dev": "inula-scripts turbo dev --parallel",
+    "dev:docs": "inula dev",
     "format": "inula format",
     "prepare": "husky install",
     "release": "inula-scripts release",
@@ -25,6 +27,7 @@
     ]
   },
   "devDependencies": {
+    "@aluni/types": "workspace:*",
     "@manypkg/get-packages": "^1.1.3",
     "@pnpm/lockfile-file": "^5.0.3",
     "@pnpm/logger": "^4.0.0",
@@ -34,6 +37,8 @@
     "@types/qrcode-terminal": "*",
     "@types/resolve": "^1.20.2",
     "@types/rimraf": "3.0.2",
+    "@umijs/plugin-docs": "4.0.78",
+    "@umijs/plugins": "4.0.78",
     "@umijs/utils": "4.0.78",
     "@vercel/ncc": "0.33.3",
     "esno": "^0.14.1",
@@ -54,6 +59,7 @@
     "turbo": "^1.3.1",
     "typescript": "^4.7.2",
     "uglify-js": "^3.15.4",
+    "umi": "4.0.78",
     "yorkie": "^2.0.0",
     "zx": "^7.2.0"
   },
