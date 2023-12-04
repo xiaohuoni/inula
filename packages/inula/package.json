@@ -20,6 +20,7 @@
     "client",
     "dist",
     "index.d.ts",
+    "eslint.js",
     "prettier.js"
   ],
   "scripts": {
