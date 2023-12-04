@@ -113,12 +113,6 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0
 
-  examples/abs:
-    dependencies:
-      inula:
-        specifier: workspace:*
-        version: link:../../packages/inula
-
   examples/antd:
     dependencies:
       inula:
