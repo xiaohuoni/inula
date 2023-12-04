@@ -1,5 +1,5 @@
-import { resolve } from "@umijs/utils";
-import { dirname } from "path";
+import { resolve } from '@umijs/utils';
+import { dirname } from 'path';
 
 export function resolveProjectDep(opts: {
   pkg: any;
@@ -13,7 +13,7 @@ export function resolveProjectDep(opts: {
     return dirname(
       resolve.sync(`${opts.dep}/package.json`, {
         basedir: opts.cwd,
-      })
+      }),
     );
   }
 }

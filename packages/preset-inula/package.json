@@ -22,7 +22,7 @@
     "test": "inula-scripts jest-turbo"
   },
   "dependencies": {
-    "@alita/plugin-azure": "^3.0.4",
+    "@alita/plugin-azure": "^3.0.5",
     "@aluni/plugin-antd": "workspace:*",
     "@aluni/plugin-antd-layout": "workspace:*",
     "@aluni/plugin-intl": "workspace:*",

@@ -11,9 +11,9 @@
     "dev": "inula-scripts turbo dev --parallel",
     "dev:docs": "inula dev",
     "format": "inula format",
+    "ghpage": "inula-scripts ghpage",
     "prepare": "husky install",
     "release": "inula-scripts release",
-    "ghpage": "inula-scripts ghpage",
     "setup:webstorm": "inula-scripts setupWebStorm",
     "synccnpm": "synccnpm",
     "tsc:check": "tsc --noEmit",
@@ -21,10 +21,10 @@
   },
   "lint-staged": {
     "*.{jsx,less,md,json}": [
-      "prettier --write"
+      "inula format"
     ],
     "*.ts?(x)": [
-      "prettier --parser=typescript --write"
+      "inula format"
     ]
   },
   "devDependencies": {

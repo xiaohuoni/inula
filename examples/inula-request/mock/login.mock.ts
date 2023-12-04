@@ -1,10 +1,10 @@
 // @ts-ignore
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
 export default {
-  "POST /api/login/account": (req: Request, res: Response) => {
+  'POST /api/login/account': (req: Request, res: Response) => {
     res
       .status(200)
-      .send({ status: "success", type: 22, currentAuthority: "admin" });
+      .send({ status: 'success', type: 22, currentAuthority: 'admin' });
   },
 };

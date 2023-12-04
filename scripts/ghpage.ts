@@ -1,23 +1,23 @@
-import { PATHS } from "./.internal/constants";
-import { spawnSync } from "./.internal/utils";
+import { PATHS } from './.internal/constants';
+import { spawnSync } from './.internal/utils';
 // @ts-ignore
-import ghpages from "gh-pages";
+import ghpages from 'gh-pages';
 
 (async () => {
   const args = process.argv.slice(2);
 
-  const command = `pnpm run build:docs ${args.join(" ")}`;
+  const command = `pnpm run build:docs ${args.join(' ')}`;
 
   spawnSync(command, { cwd: PATHS.ROOT });
 
   ghpages.publish(
-    "dist",
+    'dist',
     {
-      branch: "ghpage",
-      repo: "https://gitee.com/congxiaochen/inula.git",
+      branch: 'ghpage',
+      repo: 'https://gitee.com/congxiaochen/inula.git',
     },
     function (err: any) {
       console.error(err);
-    }
+    },
   );
 })();

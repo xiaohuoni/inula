@@ -1,6 +1,6 @@
-import { IApi } from "@aluni/types";
-import { winPath } from "@umijs/utils";
-import { join } from "path";
+import { IApi } from '@aluni/types';
+import { winPath } from '@umijs/utils';
+import { join } from 'path';
 
 export function withTmpPath(opts: {
   api: IApi;
@@ -12,8 +12,8 @@ export function withTmpPath(opts: {
       opts.api.paths.absTmpPath,
       opts.api.plugin.key && !opts.noPluginDir
         ? `plugin-${opts.api.plugin.key}`
-        : "",
-      opts.path
-    )
+        : '',
+      opts.path,
+    ),
   );
 }

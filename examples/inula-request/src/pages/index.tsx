@@ -1,6 +1,6 @@
-import { currentUser } from "@/services/antdpro/api";
-import { sayHi } from "@/services/api";
-import { useRequest, useState } from "inula";
+import { currentUser } from '@/services/antdpro/api';
+import { sayHi } from '@/services/api';
+import { useRequest, useState } from 'inula';
 
 const Page = () => {
   const [title, setTitle] = useState();
