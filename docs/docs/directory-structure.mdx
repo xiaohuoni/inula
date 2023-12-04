@@ -1,0 +1,282 @@
+import { Message } from 'umi';
+
+# 目录结构
+
+这里罗列了 inula 项目中约定(或推荐)的目录结构，在项目开发中，请遵照这个目录结构组织代码。
+
+```bash
+.
+├── config
+│   └── config.ts
+├── dist
+├── mock
+│   └── app.ts｜tsx
+├── src
+│   ├── layout
+│   │   ├── layout.tsx
+│   │   ├── index.tsx
+│   ├── stores
+│   │   ├── global.ts
+│   │   └── hello.ts
+│   ├── locales
+│   │   ├── zh-TW
+│   │   └── zh-CN.ts
+│   ├── pages
+│   │   ├── home
+│   │   │   ├── index.style.ts
+│   │   │   └── index.tsx
+│   │   ├── list
+│   │   │   ├── index.style.ts
+│   │   │   └── index.tsx
+│   │   └── 404.tsx
+│   ├── utils // 推荐目录
+│   │   └── index.ts
+│   ├── services // 推荐目录
+│   │   └── api.ts
+│   ├── app.ts
+│   ├── global.ts
+│   ├── global.(css)
+│   └── plugin.ts
+│   └── favicon.(ico|gif|png|jpg|jpeg|svg|avif|webp)
+│   └── loading.(tsx|jsx)
+├── node_modules
+│   └── .cache
+│       ├── bundler-webpack
+│       └── 其他构建缓存
+├── .env
+├── .env.local 本地的环境变量
+├── .inularc.ts // 与 config/config 文件 2 选一
+├── package.json
+├── tsconfig.json
+└── typings.d.ts
+```
+
+## 根目录
+
+### .env
+
+环境变量，比如：
+
+```text
+PORT=8888
+COMPRESS=none
+```
+
+### .env.local
+
+本地的环境环境变量，一些不能传到远程的需要保密的环境变量，可以写在这个文件中，比如：
+
+```text
+AZURE_OPENAI_API_KEY=xxxx
+```
+
+<Message emoji="🔔" type="warning">
+  **不要提交 `.env.local` 文件到 git 仓库，默认已在 `.gitignore` 被忽略。**
+</Message>
+
+### .inularc.ts
+
+> 与 `config/config.ts` 文件功能相同，2 选 1 。`.inularc.ts` 文件优先级较高
+
+配置文件，包含 Inula 所有[非运行时配置](../api/config)（运行时配置定义于 [`app.ts`](#apptstsx)）。
+
+### config/config.ts
+
+> 与 `.inularc.ts` 文件功能相同，2 选 1 。`.inularc.ts` 文件优先级较高
+
+在一个 `config` 文件夹下集中管理所有的配置，保持项目根目录整洁。
+
+### dist 目录
+
+执行 `inula build` 后产物的默认输出文件夹。可通过 [`outputPath`](../api/config#outputpath) 配置修改产物输出文件夹。
+
+### mock 目录
+
+存放 mock 文件，此目录下所有 `.ts` / `.js` 文件会被 mock 服务加载，从而提供模拟数据，使用方法详见 [Mock](./mock) 。
+
+### public 目录
+
+存放固定的静态资源，如存放 `public/image.png` ，则开发时可以通过 `/image.png` 访问到，构建后会被拷贝到输出文件夹。
+
+注：
+
+1. 对于 svg 资源，支持 [svgr](../api/config#svgr) ，可以直接导入作为组件使用：
+
+```ts
+import SmileUrl, { ReactComponent as SvgSmile } from './smile.svg';
+// <SvgSmile />
+```
+
+2. 对于图片等资源，支持直接导入获取资源路径：
+
+```tsx
+// <img src={imgUrl} />>
+```
+
+所以一般我们使用导入使用的方式使用静态资源，因为比较小的图片还会被优先处理成内置的 base64 数据。
+
+<Message emoji="🔔" type="error">
+  **不能在 `public` 目录下面存放 `index.html` 文件，因为构建时会覆盖构建产物。**
+</Message>
+
+### `src` 目录
+
+#### .inula 目录
+
+<Message emoji="🔔" type="warning">
+  **不要提交 `.inula` 临时文件到 git 仓库，默认已在 `.gitignore` 被忽略。**
+</Message>
+
+dev 时的临时文件目录，比如入口文件、路由等，都会被临时生成到这里。
+
+#### .inula-production 目录
+
+<Message emoji="🔔" type="warning">
+  **不要提交 `.inula-production` 临时文件到 git 仓库，默认已在 `.gitignore`
+  被忽略。**
+</Message>
+
+build 时的临时文件目录，比如入口文件、路由等，都会被临时生成到这里。
+
+#### app.[ts ｜ tsx]
+
+运行时配置文件，可以在这里扩展运行时的能力，比如修改路由、修改 render 方法等。
+
+运行时配置带来的逻辑会在浏览器中运行，因此当有远程配置、动态内容时，这些我们在本地开发时还不确定，不能写死，所以需要在浏览器实际运行项目时动态获取他们。
+
+详细用法见相关插件的说明。
+
+#### layouts/index.tsx
+
+全局布局，默认会在所有路由下生效，比如有以下路由关系：
+
+```
+[
+  { path: '/', component: '@/pages/index' },
+  { path: '/users', component: '@/pages/users' },
+]
+```
+
+输出为：
+
+```jsx
+<Layout>
+  <Page>index</Page>
+  <Page>users</Page>
+</Layout>
+```
+
+#### stores 目录
+
+约定 `stores/*` 文件夹下的 store 的文件，会被自动加载为状态管理器，详见 [Inula-X](./x)。
+
+#### locales 目录
+
+约定 `locales/*` 文件夹下文件，会被自动加载为国际化文件，详见 [./api/intl]。
+
+#### pages 目录
+
+约定式路由默认以 `pages/*` 文件夹的文件层级结构来生成路由表。
+
+##### 基础路由
+
+假设 `pages` 目录结构如下：
+
+```
++ pages/
+  + users/
+    - index.tsx
+  - index.tsx
+```
+
+那么，会自动生成路由配置如下：
+
+```ts
+[
+  { path: '/', component: '@/pages/index.tsx' },
+  { path: '/users/', component: '@/pages/users/index.tsx' },
+];
+```
+
+##### 动态路由
+
+约定带 `$` 前缀的目录或文件为动态路由。若 `$` 后不指定参数名，则代表 `*` 通配，比如以下目录结构：
+
+```
++ pages/
+  + foo/
+    - $slug.tsx
+  + $bar/
+    - $.tsx
+  - index.tsx
+```
+
+会生成路由配置如下：
+
+```ts
+[
+  { path: '/', component: '@/pages/index.tsx' },
+  { path: '/foo/:slug', component: '@/pages/foo/$slug.tsx' },
+  { path: '/:bar/*', component: '@/pages/$bar/$.tsx' },
+];
+```
+
+##### pages/404.tsx
+
+在使用约定式路由时，该文件会自动被注册为全局 404 的 fallback 页面。若你使用配置式路由，需要自行配置兜底路由到路由表最后一个：
+
+```ts
+routes: [
+  // other routes ...
+  { path: '/*', component: '@/pages/404.tsx' },
+];
+```
+
+#### global.(j|t)sx?
+
+全局前置脚本文件。
+
+Inula 区别于其他前端框架，没有显式的程序主入口（如 `src/index.ts`），所以当你有需要在应用前置、全局运行的逻辑时，优先考虑写入 `global.ts` 。
+
+当你需要添加全局 Context 、修改应用运行时，请使用 [`app.tsx`](#apptstsx) 。
+
+#### global.(css)
+
+全局样式文件。
+
+当你有需要全局使用的样式时，请考虑加入此文件。
+
+<Message emoji="💡" type="info">
+  需要注意的是，此文件的优先级在第三方组件库的样式之后，所以当你有覆盖第三方库样式的需求时，请使用
+  [`overrides.css`](#overridescsslesssassscss) 。
+</Message>
+
+#### overrides.(css)
+
+高优先级全局样式文件。
+
+该文件一般专用于覆盖第三方库样式，其中所有 CSS 选择器都会附加 `body` 前缀以抬高优先级。
+
+#### loading.(tsx|jsx)
+
+全局加载组件。
+
+在页面切换时存在加载过程，通过该文件来配置加载动画。
+
+### plugin.ts
+
+项目级插件。
+
+当你有插件定制需求时，请访问[ Umi 插件文档](https://umijs.org/docs/api/plugin-api)学习如何编写。一般在业务开发中，定制插件的场景较少，可以先提个 Issues 让框架维护人员评判一下是否真的需要自定义开发插件
+
+### favicon
+
+站点 `favicon` 图标文件。
+
+当存在 `src/favicon.(ico|gif|png|jpg|jpeg|svg|avif|webp)` 文件时，将会自动在产物中添加站点 `favicon` ：
+
+```html
+<link rel="shortcut icon" href="/favicon.png" />
+```
+
+若使用外部资源等，可以使用 [favicons](../api/config#favicons) 手动配置站点图标，配置值优先于约定。

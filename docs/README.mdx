@@ -1,0 +1,52 @@
+import { Hero, Features, Tabbed, FeatureIItem } from 'inula';
+
+<Hero
+  title={['Inula', 'openInula']}
+  description="关注业务需求，以开发体验为主，集成 openInula 全生态"
+  buttons={[
+    { label: '快速开始', href: 'docs/getting-started' },
+    { label: '了解更多', href: 'docs/x' },
+  ]}
+></Hero>
+
+<Features title="openInula 官方组件">
+  <FeatureIItem
+    link="docs/x"
+    title="状态管理器"
+    description="Inula-X是openInula默认提供的状态管理器，无需额外引入三方库，就可以简单实现跨组件/页面共享状态"
+    icon="https://openinula.net/assets/officialAvatar.status-fa069337.png"
+  ></FeatureIItem>
+  <FeatureIItem
+    link="docs/request"
+    title="请求"
+    description="Inula-request涵盖常见的网络请求方式，并提供动态轮询钩子函数给用户更便捷的定制化请求体验"
+    icon="https://openinula.net/assets/officialAvatar.request-4d349763.png"
+  ></FeatureIItem>
+  <FeatureIItem
+    link="docs/intl"
+    title="国际化"
+    description="Inula-intl提供了国际化功能，涵盖了基本的国际化组件和钩子函数，便于用户在构建国际化能力时方便操作"
+    icon="https://openinula.net/assets/officialAvatar.intl-13957692.png"
+  ></FeatureIItem>
+</Features>
+
+<Features title="其他能力">
+  <FeatureIItem
+    link="docs/antd"
+    title="antd"
+    description="Ant Design 5.0"
+    icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+  ></FeatureIItem>
+  <FeatureIItem
+    link="docs/pro-layout"
+    title="ProComponents"
+    description="🏆 让中后台开发更简单"
+    icon="https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg"
+  ></FeatureIItem>
+  <FeatureIItem
+    link="docs/aigc"
+    title="AIGC"
+    description="使用 Azure Api 对接 OpenAI ChatGPT 4 模型，快速使用 AIGC 能力助力业务开发"
+    icon="openai.svg"
+  ></FeatureIItem>
+</Features>
