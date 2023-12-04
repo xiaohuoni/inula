@@ -8,7 +8,11 @@ Inula 是一个关注业务需求，以开发体验为主的前端框架，集�
 
 你可以通过以下步骤快速开始使用 Inula：
 
-TODO: 待补充
+```base
+npx inula init [dir]
+```
+
+初始化一个 Inula 项目，目录可选，一般操作是新建一个空白文件夹，再执行 `npx inula init` 即可。
 
 ## 特性
 

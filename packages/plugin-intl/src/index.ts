@@ -193,10 +193,9 @@ export { addLocale, setLocale, getLocale, getAllLocales } from './localeExports'
     type: GeneratorType.generate,
     fn: async ({ args }) => {
       const name = args?._?.[1];
-      let defaultCode = `
-      export default {
-        'navBar.lang': '语言',
-      };`;
+      let defaultCode = `export default {
+  'navBar.lang': '语言',
+};`;
       let defaultPath = name;
       if (args?.create) {
         logger.info('[试验性方案] 使用 aigc 自动翻译');

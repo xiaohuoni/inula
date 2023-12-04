@@ -125,6 +125,9 @@ export default () => {
       require.resolve('@aluni/plugin-request'),
       require.resolve('@aluni/plugin-x'),
       require.resolve('@aluni/plugin-openapi'),
+
+      // 初始化项目
+      require.resolve('@aluni/plugin-init'),
     ].filter(Boolean),
   };
 };
