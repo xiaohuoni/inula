@@ -4,6 +4,7 @@
   "scripts": {
     "build": "inula build",
     "build-analyze": "ANALYZE=1 inula build",
+    "call": "inula call",
     "dev": "inula dev",
     "preview": "inula preview",
     "setup": "inula setup",
