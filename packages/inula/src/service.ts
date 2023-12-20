@@ -9,6 +9,8 @@ export class Service extends CoreService {
     process.env.UMI_DIR = dirname(require.resolve('../package'));
 
     let cwd = process.cwd();
+    require('./requireHook');
+
     const appRoot = process.env.APP_ROOT;
 
     if (appRoot) {
@@ -21,9 +23,13 @@ export class Service extends CoreService {
       cwd,
       defaultConfigFiles: DEFAULT_CONFIG_FILES,
       frameworkName: FRAMEWORK_NAME,
-      presets: [require.resolve('@aluni/preset-inula')],
+      presets: [
+        require.resolve('@aluni/preset-inula'),
+        require.resolve('@umijs/preset-blocks'),
+      ],
       plugins: [
         require.resolve('./commands/format'),
+        require.resolve('./config/inulamain'),
         existsSync(join(cwd, 'plugin.ts')) && join(cwd, 'plugin.ts'),
         existsSync(join(cwd, 'plugin.js')) && join(cwd, 'plugin.js'),
       ].filter(Boolean),

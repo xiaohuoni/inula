@@ -1,0 +1,29 @@
+{
+  "name": "@example/blocks",
+  "private": true,
+  "scripts": {
+    "block": "inula block list",
+    "build": "inula build",
+    "build-analyze": "ANALYZE=1 inula build",
+    "call": "inula call",
+    "dev": "inula dev",
+    "preview": "inula preview",
+    "setup": "inula setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@ant-design/charts": "1.2.11",
+    "@ant-design/icons": "^4.8.1",
+    "@ant-design/pro-components": "^2.6.43",
+    "antd": "^5.12.2",
+    "antd-style": "^3.6.1",
+    "bizcharts": "^3.5.10",
+    "bizcharts-plugin-slider": "^2.1.1",
+    "classnames": "^2.3.2",
+    "inula": "workspace:*",
+    "lodash.debounce": "^4.0.8",
+    "moment": "^2.29.4",
+    "numeral": "^2.0.6",
+    "react-fittext": "^1.0.0"
+  }
+}
