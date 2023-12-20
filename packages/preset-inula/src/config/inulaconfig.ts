@@ -104,7 +104,7 @@ export default (api: IApi) => {
   api.modifyBabelPresetOpts((memo) => {
     memo.presetReact = {
       runtime: 'automatic',
-      importSource: 'openinula', // 新增
+      importSource: 'openinula',
     };
     return memo;
   });

@@ -17,6 +17,8 @@
 .umi-test
 .inula-test
 dist
+es
+lib
 .turbo
 .idea
 playwright-report
