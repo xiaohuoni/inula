@@ -1,0 +1,1 @@
+export { createInulaComponent } from './createComponent';

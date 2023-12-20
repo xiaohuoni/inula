@@ -1,0 +1,36 @@
+{
+  "name": "@aluni/ui",
+  "version": "0.0.1",
+  "description": "@aluni/ui",
+  "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/ui#readme",
+  "bugs": "https://gitee.com/congxiaochen/inula/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/congxiaochen/inula"
+  },
+  "license": "MIT",
+  "main": "es/index.js",
+  "types": "es/index.d.ts",
+  "files": [
+    "es"
+  ],
+  "scripts": {
+    "build": "inula-scripts father build",
+    "build:deps": "inula-scripts bundleDeps",
+    "dev": "inula-scripts father dev"
+  },
+  "dependencies": {
+    "@material/react-ripple": "^0.15.0",
+    "@material/web": "^1.1.1"
+  },
+  "devDependencies": {
+    "@aluni/types": "workspace:*",
+    "openinula": "0.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ]
+}
