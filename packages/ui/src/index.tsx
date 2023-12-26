@@ -1,4 +1,5 @@
 // @ts-ignore
+// @ts-ignore
 import '@material/web/all';
 import { createInulaComponent } from './inula-component-lib';
 import type {
@@ -46,100 +47,154 @@ import type {
   MdTabs,
   MdTextButton,
 } from './types';
-export const ElevatedButton = createInulaComponent<MdElevatedButton, any>(
-  'md-elevated-button',
+export const ElevatedButton = /* @__PURE__ */ createInulaComponent<
+  MdElevatedButton,
+  any
+>('md-elevated-button');
+export const FilledButton = /* @__PURE__ */ createInulaComponent<
+  MdFilledButton,
+  any
+>('md-filled-button');
+export const FilledTonalButton = /* @__PURE__ */ createInulaComponent<
+  MdFilledTonalButton,
+  any
+>('md-filled-tonal-button');
+export const OutlinedButton = /* @__PURE__ */ createInulaComponent<
+  MdOutlinedButton,
+  any
+>('md-outlined-button');
+export const TextButton = /* @__PURE__ */ createInulaComponent<
+  MdTextButton,
+  any
+>('md-text-button');
+export const Checkbox = /* @__PURE__ */ createInulaComponent<MdCheckbox, any>(
+  'md-checkbox',
 );
-export const FilledButton = createInulaComponent<MdFilledButton, any>(
-  'md-filled-button',
+export const AssistChip = /* @__PURE__ */ createInulaComponent<
+  MdAssistChip,
+  any
+>('md-assist-chip');
+export const ChipSet = /* @__PURE__ */ createInulaComponent<MdChipSet, any>(
+  'md-chip-set',
 );
-export const FilledTonalButton = createInulaComponent<MdFilledTonalButton, any>(
-  'md-filled-tonal-button',
-);
-export const OutlinedButton = createInulaComponent<MdOutlinedButton, any>(
-  'md-outlined-button',
-);
-export const TextButton = createInulaComponent<MdTextButton, any>(
-  'md-text-button',
-);
-export const Checkbox = createInulaComponent<MdCheckbox, any>('md-checkbox');
-export const AssistChip = createInulaComponent<MdAssistChip, any>(
-  'md-assist-chip',
-);
-export const ChipSet = createInulaComponent<MdChipSet, any>('md-chip-set');
-export const FilterChip = createInulaComponent<MdFilterChip, any>(
-  'md-filter-chip',
-);
-export const InputChip = createInulaComponent<MdInputChip, any>(
+export const FilterChip = /* @__PURE__ */ createInulaComponent<
+  MdFilterChip,
+  any
+>('md-filter-chip');
+export const InputChip = /* @__PURE__ */ createInulaComponent<MdInputChip, any>(
   'md-input-chip',
 );
-export const SuggestionChip = createInulaComponent<MdSuggestionChip, any>(
-  'md-suggestion-chip',
+export const SuggestionChip = /* @__PURE__ */ createInulaComponent<
+  MdSuggestionChip,
+  any
+>('md-suggestion-chip');
+export const Dialog = /* @__PURE__ */ createInulaComponent<MdDialog, any>(
+  'md-dialog',
 );
-export const Dialog = createInulaComponent<MdDialog, any>('md-dialog');
-export const Divider = createInulaComponent<MdDivider, any>('md-divider');
-export const Elevation = createInulaComponent<MdElevation, any>('md-elevation');
-export const BrandedFab = createInulaComponent<MdBrandedFab, any>(
-  'md-branded-fab',
+export const Divider = /* @__PURE__ */ createInulaComponent<MdDivider, any>(
+  'md-divider',
 );
-export const Fab = createInulaComponent<MdFab, any>('md-fab');
-export const FilledField = createInulaComponent<MdFilledField, any>(
-  'md-filled-field',
+export const Elevation = /* @__PURE__ */ createInulaComponent<MdElevation, any>(
+  'md-elevation',
 );
-export const OutlinedField = createInulaComponent<MdOutlinedField, any>(
-  'md-outlined-field',
-);
-export const FocusRing = createInulaComponent<MdFocusRing, any>(
+export const BrandedFab = /* @__PURE__ */ createInulaComponent<
+  MdBrandedFab,
+  any
+>('md-branded-fab');
+export const Fab = /* @__PURE__ */ createInulaComponent<MdFab, any>('md-fab');
+export const FilledField = /* @__PURE__ */ createInulaComponent<
+  MdFilledField,
+  any
+>('md-filled-field');
+export const OutlinedField = /* @__PURE__ */ createInulaComponent<
+  MdOutlinedField,
+  any
+>('md-outlined-field');
+export const FocusRing = /* @__PURE__ */ createInulaComponent<MdFocusRing, any>(
   'md-focus-ring',
 );
-export const Icon = createInulaComponent<MdIcon, any>('md-icon');
-export const FilledIconButton = createInulaComponent<MdFilledIconButton, any>(
-  'md-filled-icon-button',
+export const Icon = /* @__PURE__ */ createInulaComponent<MdIcon, any>(
+  'md-icon',
 );
-export const FilledTonalIconButton = createInulaComponent<
+export const FilledIconButton = /* @__PURE__ */ createInulaComponent<
+  MdFilledIconButton,
+  any
+>('md-filled-icon-button');
+export const FilledTonalIconButton = /* @__PURE__ */ createInulaComponent<
   MdFilledTonalIconButton,
   any
 >('md-filled-tonal-icon-button');
-export const IconButton = createInulaComponent<MdIconButton, any>(
-  'md-icon-button',
-);
-export const OutlinedIconButton = createInulaComponent<
+export const IconButton = /* @__PURE__ */ createInulaComponent<
+  MdIconButton,
+  any
+>('md-icon-button');
+export const OutlinedIconButton = /* @__PURE__ */ createInulaComponent<
   MdOutlinedIconButton,
   any
 >('md-outlined-icon-button');
-export const List = createInulaComponent<MdList, any>('md-list');
-export const ListItem = createInulaComponent<MdListItem, any>('md-list-item');
-export const Menu = createInulaComponent<MdMenu, any>('md-menu');
-export const MenuItem = createInulaComponent<MdMenuItem, any>('md-menu-item');
-export const SubMenu = createInulaComponent<MdSubMenu, any>('md-sub-menu');
-export const CircularProgress = createInulaComponent<MdCircularProgress, any>(
-  'md-circular-progress',
+export const List = /* @__PURE__ */ createInulaComponent<MdList, any>(
+  'md-list',
 );
-export const LinearProgress = createInulaComponent<MdLinearProgress, any>(
-  'md-linear-progress',
+export const ListItem = /* @__PURE__ */ createInulaComponent<MdListItem, any>(
+  'md-list-item',
 );
-export const Radio = createInulaComponent<MdRadio, any>('md-radio');
-export const Ripple = createInulaComponent<MdRipple, any>('md-ripple');
-export const FilledSelect = createInulaComponent<MdFilledSelect, any>(
-  'md-filled-select',
+export const Menu = /* @__PURE__ */ createInulaComponent<MdMenu, any>(
+  'md-menu',
 );
-export const OutlinedSelect = createInulaComponent<MdOutlinedSelect, any>(
-  'md-outlined-select',
+export const MenuItem = /* @__PURE__ */ createInulaComponent<MdMenuItem, any>(
+  'md-menu-item',
 );
-export const SelectOption = createInulaComponent<MdSelectOption, any>(
-  'md-select-option',
+export const SubMenu = /* @__PURE__ */ createInulaComponent<MdSubMenu, any>(
+  'md-sub-menu',
 );
-export const Slider = createInulaComponent<MdSlider, any>('md-slider');
-export const Switch = createInulaComponent<MdSwitch, any>('md-switch');
-export const PrimaryTab = createInulaComponent<MdPrimaryTab, any>(
-  'md-primary-tab',
+export const CircularProgress = /* @__PURE__ */ createInulaComponent<
+  MdCircularProgress,
+  any
+>('md-circular-progress');
+export const LinearProgress = /* @__PURE__ */ createInulaComponent<
+  MdLinearProgress,
+  any
+>('md-linear-progress');
+export const Radio = /* @__PURE__ */ createInulaComponent<MdRadio, any>(
+  'md-radio',
 );
-export const SecondaryTab = createInulaComponent<MdSecondaryTab, any>(
-  'md-secondary-tab',
+export const Ripple = /* @__PURE__ */ createInulaComponent<MdRipple, any>(
+  'md-ripple',
 );
-export const Tabs = createInulaComponent<MdTabs, any>('md-tabs');
-export const FilledTextField = createInulaComponent<MdFilledTextField, any>(
-  'md-filled-text-field',
+export const FilledSelect = /* @__PURE__ */ createInulaComponent<
+  MdFilledSelect,
+  any
+>('md-filled-select');
+export const OutlinedSelect = /* @__PURE__ */ createInulaComponent<
+  MdOutlinedSelect,
+  any
+>('md-outlined-select');
+export const SelectOption = /* @__PURE__ */ createInulaComponent<
+  MdSelectOption,
+  any
+>('md-select-option');
+export const Slider = /* @__PURE__ */ createInulaComponent<MdSlider, any>(
+  'md-slider',
 );
-export const OutlinedTextField = createInulaComponent<MdOutlinedTextField, any>(
-  'md-outlined-text-field',
+export const Switch = /* @__PURE__ */ createInulaComponent<MdSwitch, any>(
+  'md-switch',
 );
+export const PrimaryTab = /* @__PURE__ */ createInulaComponent<
+  MdPrimaryTab,
+  any
+>('md-primary-tab');
+export const SecondaryTab = /* @__PURE__ */ createInulaComponent<
+  MdSecondaryTab,
+  any
+>('md-secondary-tab');
+export const Tabs = /* @__PURE__ */ createInulaComponent<MdTabs, any>(
+  'md-tabs',
+);
+export const FilledTextField = /* @__PURE__ */ createInulaComponent<
+  MdFilledTextField,
+  any
+>('md-filled-text-field');
+export const OutlinedTextField = /* @__PURE__ */ createInulaComponent<
+  MdOutlinedTextField,
+  any
+>('md-outlined-text-field');

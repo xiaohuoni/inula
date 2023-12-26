@@ -1,8 +1,26 @@
 import { IApi } from '@aluni/types';
-import { copyFileSync, existsSync } from 'fs';
-import { join } from 'path';
+import { winPath } from '@umijs/utils';
+import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'fs';
+import { dirname, join } from 'path';
 
 export default (api: IApi) => {
+  api.onStart(() => {
+    // 修复当配置 base 时， @umijs/plugin-docs 首页判断 bug
+    const layoutPath = winPath(
+      join(
+        dirname(require.resolve('@umijs/plugin-docs')),
+        '..',
+        'client/theme-doc/Layout.tsx',
+      ),
+    );
+    // window.location.pathname === '/'
+    let context = readFileSync(layoutPath, 'utf-8');
+    context = context.replace(
+      "window.location.pathname === '/'",
+      `window.location.pathname === '${api.config.base ?? '/'}'`,
+    );
+    writeFileSync(layoutPath, context, 'utf-8');
+  });
   api.onBuildComplete(({ err }) => {
     //@ts-ignore
     if (!err && !existsSync(join(api.paths.absOutputPath!, '404.html'))) {

@@ -36,7 +36,7 @@
     "@umijs/preset-umi": "4.0.88",
     "@umijs/server": "^4.0.88",
     "@umijs/utils": "4.0.88",
-    "openinula": "0.0.1"
+    "openinula": "0.1.1"
   },
   "publishConfig": {
     "access": "public"

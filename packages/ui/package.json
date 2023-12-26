@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@aluni/types": "workspace:*",
-    "openinula": "0.0.1"
+    "openinula": "0.1.1"
   },
   "publishConfig": {
     "access": "public"
