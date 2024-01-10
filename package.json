@@ -13,6 +13,7 @@
     "format": "inula format",
     "ghpage": "inula-scripts ghpage",
     "prepare": "husky install",
+    "pub": "inula-scripts publish",
     "release": "inula-scripts release",
     "setup:webstorm": "inula-scripts setupWebStorm",
     "synccnpm": "synccnpm",
