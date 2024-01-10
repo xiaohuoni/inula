@@ -107,11 +107,11 @@ import { assert, eachPkg, getPkgs } from './.internal/utils';
     );
   });
 
-  // update pnpm lockfile
-  logger.event('update pnpm lockfile');
-  $.verbose = false;
-  await $`pnpm i`;
-  $.verbose = true;
+  // // update pnpm lockfile
+  // logger.event('update pnpm lockfile');
+  // $.verbose = false;
+  // await $`pnpm i`;
+  // $.verbose = true;
 
   // commit
   logger.event('commit');
