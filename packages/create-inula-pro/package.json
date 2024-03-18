@@ -1,0 +1,24 @@
+{
+  "name": "create-inula-pro",
+  "version": "0.0.2",
+  "description": "create-inula-pro",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "create-inula-pro": "bin/create-inula-pro.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "inula-scripts father build"
+  },
+  "dependencies": {
+    "@umijs/utils": "4.0.88"
+  },
+  "authors": [
+    "chenxiaocong <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ]
+}

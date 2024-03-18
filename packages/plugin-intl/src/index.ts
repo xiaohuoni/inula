@@ -101,7 +101,7 @@ const getIntlConfig = () => {
 }
 
 export function RootContainer(props: any) {
-  
+
   const [locale,setLocale] = Inula.useState(getLocale());
   const messages = getIntlConfig();
   const handleLangChange = (locale:string) => {
@@ -134,7 +134,7 @@ return React.createElement(RootContainer, opts, container);
     // index.ts for export
     api.writeTmpFile({
       path: 'index.ts',
-      content: `export { useIntl } from '${intlPath}';
+      content: `export { useIntl, FormattedMessage } from '${intlPath}';
 export { addLocale, setLocale, getLocale, getAllLocales } from './localeExports';
 `,
     });

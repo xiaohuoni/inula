@@ -1,0 +1,3 @@
+[submodule "packages/create-inula-pro/templates/inula-antd-pro"]
+	path = packages/create-inula-pro/templates/inula-antd-pro
+	url = https://gitee.com/congxiaochen/inula-antd-pro.git
