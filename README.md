@@ -9,10 +9,14 @@ Inula 是一个关注业务需求，以开发体验为主的前端框架，集�
 你可以通过以下步骤快速开始使用 Inula：
 
 ```base
-npx inula init [dir]
+npm create inula-pro
 ```
 
-初始化一个 Inula 项目，目录可选，一般操作是新建一个空白文件夹，再执行 `npx inula init` 即可。
+初始化一个 Inula 版本的 ant design pro 项目
+
+![](https://user-images.githubusercontent.com/8186664/44953195-581e3d80-aec4-11e8-8dcb-54b9db38ec11.png)
+
+- 预览：http://congxiaochen.gitee.io/inula-antd-pro/
 
 ## 特性
 
