@@ -47,7 +47,9 @@ ${getDeps(commands)}
       )}\` for more information of specific commands.`,
     );
     console.log(
-      `Visit ${chalk.bold('https://umijs.org/')} to learn more about Umi.`,
+      `Visit ${chalk.bold(
+        'https://docs.openinula.net/',
+      )} to learn more about Inula.`,
     );
     console.log();
   }
