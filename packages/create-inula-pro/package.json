@@ -1,6 +1,6 @@
 {
   "name": "create-inula-pro",
-  "version": "0.0.2",
+  "version": "0.0.3-canary.2",
   "description": "create-inula-pro",
   "license": "MIT",
   "main": "dist/index.js",
@@ -13,7 +13,8 @@
     "templates"
   ],
   "scripts": {
-    "build": "inula-scripts father build"
+    "build": "inula-scripts father build",
+    "build:deps": "inula-scripts bundleDeps"
   },
   "dependencies": {
     "@umijs/utils": "4.0.88"
