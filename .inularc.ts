@@ -17,6 +17,6 @@ export default {
     type: 'hash',
   },
   // 等后续升级 gitee page pro 需要移除这些配置
-  publicPath: process.env.NODE_ENV === 'production' ? '/inula/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   base: process.env.NODE_ENV === 'production' ? '/inula/' : '/',
 };
