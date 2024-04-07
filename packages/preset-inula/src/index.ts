@@ -91,7 +91,7 @@ export default () => {
       require.resolve('@umijs/preset-umi/dist/commands/config/config'),
       // require.resolve('@umijs/preset-umi/dist/commands/dev/dev'),
       require.resolve('./commands/dev'),
-      require.resolve('@umijs/preset-umi/dist/commands/help'),
+      require.resolve('./commands/help'),
       require.resolve('@umijs/preset-umi/dist/commands/lint'),
       require.resolve('@umijs/preset-umi/dist/commands/setup'),
       require.resolve('@umijs/preset-umi/dist/commands/deadcode'),
