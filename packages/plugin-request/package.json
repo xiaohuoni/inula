@@ -1,6 +1,6 @@
 {
   "name": "@aluni/plugin-request",
-  "version": "0.0.3-canary.2",
+  "version": "0.0.4",
   "description": "@aluni/plugin-request",
   "homepage": "https://gitee.com/congxiaochen/inula/tree/master/packages/plugin-request#readme",
   "bugs": "https://gitee.com/congxiaochen/inula/issues",

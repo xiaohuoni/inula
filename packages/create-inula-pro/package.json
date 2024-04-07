@@ -1,6 +1,6 @@
 {
   "name": "create-inula-pro",
-  "version": "0.0.3-canary.2",
+  "version": "0.0.4",
   "description": "create-inula-pro",
   "license": "MIT",
   "main": "dist/index.js",
