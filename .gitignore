@@ -16,7 +16,6 @@
 .inula-production
 .umi-test
 .inula-test
-dist
 es
 lib
 .turbo
